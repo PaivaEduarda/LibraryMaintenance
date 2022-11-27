@@ -1,0 +1,10 @@
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe.config
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.pdb
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.AssemblyReference.cache
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.SuggestedBindingRedirects.cache
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.Properties.Resources.resources
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.GenerateResource.cache
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.CoreCompileInputs.cache
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.exe
+C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.pdb
