@@ -175,7 +175,7 @@ namespace DAL
 
         }
         public void UpdateLivro(Livro qualLivro)
-        {
+        {     
             try
             {
                 String sql = "UPDATE bibLivro " +

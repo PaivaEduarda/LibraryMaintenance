@@ -1,0 +1,11 @@
+- Fazer um relatório com livros atrasados
+
+- Procurar com nome ou id mas sem alterar o id.
+
+- como comparar toda vez que clica no tooStrip
+
+- em frmEmprestimo ta tendo algo com a data Dev
+
+- data grid view
+
+- tem algo errado com o inserir

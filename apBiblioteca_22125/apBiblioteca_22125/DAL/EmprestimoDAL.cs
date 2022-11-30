@@ -16,7 +16,7 @@ namespace DAL
         public EmprestimoDAL(string banco, string usuario, string senha)
         {
             _conexaoSQLServer =
-                "Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {banco};" +
+                $"Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {banco};" +
                 $"User id = {usuario}; passWord = {senha}";
         }
         public List<Emprestimo> SelectListEmprestimo()    // retorna uma lista de Livros, ou seja, um objeto da classe List<Livro> com os
@@ -80,7 +80,7 @@ namespace DAL
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "dataEmprestimoPrevista, dataDevolucaoReal FROM bibEmprestimo" +
+                             "DataDevolucaoPrevista, dataDevolucaoReal FROM bibEmprestimo" +
                              " WHERE idEmpretimo = @id";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -94,7 +94,7 @@ namespace DAL
                     emprestimo = new Emprestimo(Convert.ToInt32(dr["idEmprestimo"]),
                                       Convert.ToInt32(dr["idLeitor"]),
                                       Convert.ToInt32(dr["idELivro"]),
-                                      Convert.ToDateTime(dr["dataEmprestimoPrevista"]),
+                                      Convert.ToDateTime(dr["DataDevolucaoPrevista"]),
                                       Convert.ToDateTime(dr["dataDevolucaoReal"]),
                                       Convert.ToDateTime(dr["dataEmprestimo"]));
                 }
@@ -112,7 +112,7 @@ namespace DAL
             try
             {
                 String sql = "INSERT INTO bibEmprestimo " +
-                " (idLeitor, idLivro, dataEmprestimo,dataEmprestimoPrevista,dataDevolucaoReal) " +
+                " (idLeitor, idLivro, dataEmprestimo,DataDevolucaoPrevista,dataDevolucaoReal) " +
                " VALUES (@codigo,@titulo, @autor) ";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -120,7 +120,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@titulo", qualEmprestimo.IdLivro);
                 cmd.Parameters.AddWithValue("@autor", qualEmprestimo.DataEmprestimo);
                 cmd.Parameters.AddWithValue("@autor", qualEmprestimo.DataDevolucaoReal);
-                cmd.Parameters.AddWithValue("@autor", qualEmprestimo.DataEmprestimoPrevista);
+                cmd.Parameters.AddWithValue("@autor", qualEmprestimo.DataDevolucaoPrevista);
 
                 _conexao.Open();
                 cmd.ExecuteNonQuery();
@@ -153,7 +153,6 @@ namespace DAL
             {
                 _conexao.Close();
             }
-
         }
         public void UpdateEmprestimo(Emprestimo qualEmprestimo)
         {
@@ -161,7 +160,7 @@ namespace DAL
             {
                 String sql = "UPDATE bibEmprestimo " +
                 " SET DataEmprestimo= @DataEmprestimo ," +
-               " DataEmprestimoPrevista=@DataEmprestimoPrevista," +
+               " DataEmprestimoPrevista=@DataDevolucaoPrevista," +
                " DataDevolucaoReal=@DataDevolucaoReal " +
                " WHERE idEmprestimo = @idEmprestimo ";
                 _conexao = new SqlConnection(_conexaoSQLServer);
@@ -170,7 +169,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@idLivro", qualEmprestimo.IdLivro);
                 cmd.Parameters.AddWithValue("@dataEmprestimo", qualEmprestimo.DataEmprestimo);
                 cmd.Parameters.AddWithValue("@dataDevolucaoReal", qualEmprestimo.DataDevolucaoReal);
-                cmd.Parameters.AddWithValue("@dataEmprestimoPrevista", qualEmprestimo.DataEmprestimoPrevista);
+                cmd.Parameters.AddWithValue("@DataDevolucaoPrevista", qualEmprestimo.DataDevolucaoPrevista);
 
                 _conexao.Open();
                 cmd.ExecuteNonQuery();
@@ -184,63 +183,5 @@ namespace DAL
                 _conexao.Close();
             }
         }
-        //public void UpdateDevolucaoPrevisto(Emprestimo qualEmprestimo)
-        //{
-        //    try
-        //    {
-        //        String sql = "UPDATE bibEmprestimo " +
-        //        " SET DataEmprestimoPrevista= @DataEmprestimoPrevista ," +
-        //       " DataEmprestimo=@DataEmprestimo," +
-        //       " DataDevolucaoReal=@DataDevolucaoReal " +
-        //       " WHERE idEmprestimo = @idEmprestimo ";
-        //        _conexao = new SqlConnection(_conexaoSQLServer);
-        //        SqlCommand cmd = new SqlCommand(sql, _conexao);
-        //        cmd.Parameters.AddWithValue("@idLeitor", qualEmprestimo.IdLeitor);
-        //        cmd.Parameters.AddWithValue("@idLivro", qualEmprestimo.IdLivro);
-        //        cmd.Parameters.AddWithValue("@dataEmprestimo", qualEmprestimo.DataEmprestimo);
-        //        cmd.Parameters.AddWithValue("@dataDevolucaoReal", qualEmprestimo.DataDevolucaoReal);
-        //        cmd.Parameters.AddWithValue("@dataEmprestimoPrevista", qualEmprestimo.DataEmprestimoPrevista);
-
-        //        _conexao.Open();
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        _conexao.Close();
-        //    }
-        //}
-        //public void UpdateDevolucaoReal(Emprestimo qualEmprestimo)
-        //{
-        //    try
-        //    {
-        //        String sql = "UPDATE bibEmprestimo " +
-        //        " SET DataDevolucaoReal= @DataDevolucaoReal ," +
-        //       " DataEmprestimo=@DataEmprestimo," +
-        //       " DataEmprestimoPrevista=@DataEmprestimoPrevista " +
-        //       " WHERE idEmprestimo = @idEmprestimo ";
-        //        _conexao = new SqlConnection(_conexaoSQLServer);
-        //        SqlCommand cmd = new SqlCommand(sql, _conexao);
-        //        cmd.Parameters.AddWithValue("@idLeitor", qualEmprestimo.IdLeitor);
-        //        cmd.Parameters.AddWithValue("@idLivro", qualEmprestimo.IdLivro);
-        //        cmd.Parameters.AddWithValue("@dataEmprestimo", qualEmprestimo.DataEmprestimo);
-        //        cmd.Parameters.AddWithValue("@dataDevolucaoReal", qualEmprestimo.DataDevolucaoReal);
-        //        cmd.Parameters.AddWithValue("@dataEmprestimoPrevista", qualEmprestimo.DataEmprestimoPrevista);
-
-        //        _conexao.Open();
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        _conexao.Close();
-        //    }
-        //}
     }
 }

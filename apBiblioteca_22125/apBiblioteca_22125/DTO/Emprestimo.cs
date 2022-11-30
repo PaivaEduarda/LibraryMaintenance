@@ -13,7 +13,7 @@ namespace DTO
             idLivro;
 
         DateTime dataEmprestimo,
-                 dataEmprestimoPrevista,
+                 dataDevolucaoPrevista,
                  dataDevolucaoReal;
 
         public int IdEmprestimo
@@ -50,19 +50,19 @@ namespace DTO
         }
 
         public DateTime DataEmprestimo { get => dataEmprestimo; set => dataEmprestimo = value; }
-        public DateTime DataEmprestimoPrevista { get => dataEmprestimoPrevista; set => dataEmprestimoPrevista = value; }
+        public DateTime DataDevolucaoPrevista { get => dataDevolucaoPrevista; set => dataDevolucaoPrevista = value; }
         public DateTime DataDevolucaoReal { get => dataDevolucaoReal; set => dataDevolucaoReal = value; }
 
         public Emprestimo(int idEmprestimo, int idLeitor, int idLivro,
                               DateTime dataEmprestimo,
-                              DateTime dataEmprestimoPrevista,
+                              DateTime dataDevolucaoPrevista,
                               DateTime dataDevolucaoReal)
         {
             this.IdEmprestimo = idEmprestimo;
             this.IdLeitor = idLeitor;
             this.IdLivro = idLivro;
             this.DataEmprestimo = dataEmprestimo;
-            this.DataEmprestimoPrevista = dataEmprestimoPrevista;
+            this.DataDevolucaoPrevista = dataDevolucaoPrevista;
             this.DataDevolucaoReal = dataDevolucaoReal;
         }
     }

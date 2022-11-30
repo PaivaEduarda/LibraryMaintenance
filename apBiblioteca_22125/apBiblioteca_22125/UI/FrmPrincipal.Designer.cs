@@ -132,6 +132,7 @@
             this.empréstimoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
             this.empréstimoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.empréstimoToolStripMenuItem.Text = "E&mpréstimo";
+            this.empréstimoToolStripMenuItem.Click += new System.EventHandler(this.empréstimoToolStripMenuItem_Click);
             // 
             // devoluçãoToolStripMenuItem
             // 
@@ -139,6 +140,7 @@
             this.devoluçãoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.devoluçãoToolStripMenuItem.Text = "De&volução";
+            this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 

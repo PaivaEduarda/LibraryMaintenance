@@ -8,3 +8,18 @@ C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apB
 C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.CoreCompileInputs.cache
 C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.exe
 C:\Users\u22125\source\repos\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.pdb
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.AssemblyReference.cache
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.SuggestedBindingRedirects.cache
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.Properties.Resources.resources
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmDevolucao.resources
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmEmprestimo.resources
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmLeitor.resources
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmLivro.resources
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.FrmPrincipal.resources
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.GenerateResource.cache
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.CoreCompileInputs.cache
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.exe
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.pdb
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe.config
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe
+Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.pdb

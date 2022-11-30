@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using BLL;
+using DAL;
 using DTO;
 
 namespace apBiblioteca_22125.UI
@@ -13,83 +14,117 @@ namespace apBiblioteca_22125.UI
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            Livro livro = new Livro(0, "", "", "");
-            livro.CodigoLivro = txtCodigoLivro.Text;
-            livro.TituloLivro = txtTituloLivro.Text;
-            livro.AutorLivro = txtAutorLivro.Text;
-            try
+            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
             {
-                LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                bll.IncluirLivro(livro);
+                MessageBox.Show("Erro preencha os campos");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
+
+                Livro livro = new Livro(0, "", "", "");
+                livro.CodigoLivro = txtCodigoLivro.Text;
+                livro.TituloLivro = txtTituloLivro.Text;
+                livro.AutorLivro = txtAutorLivro.Text;
+                try
+                {
+                    LivroBLL bll = new LivroBLL(banco, usuario, senha);
+                    bll.IncluirLivro(livro);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
             }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Livro livro = new Livro(int.Parse(txtIdLivro.Text),
+            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
+            {
+                MessageBox.Show("Erro preencha os campos");
+            }
+            else
+            {
+                Livro livro = new Livro(int.Parse(txtIdLivro.Text),
                                     txtCodigoLivro.Text,
                                     txtTituloLivro.Text,
                                     txtAutorLivro.Text);
-            try
-            {
-                BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                bll.AlterarLivro(livro);
+                try
+                {
+                    BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
+                    bll.AlterarLivro(livro);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
-            }
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Livro livro = new Livro(Convert.ToInt32(txtIdLivro.Text), "", "", "");
-            try
+            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
             {
-                BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                bll.ExcluirLivro(livro);
+                MessageBox.Show("Erro preencha os campos");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
-            }
+                Livro livro = new Livro(Convert.ToInt32(txtIdLivro.Text), "", "", "");
+                try
+                {
+                    BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
+                    bll.ExcluirLivro(livro);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
+            } 
         }
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
             string codigo = txtIdLivro.Text;
             Livro livro = null;
-            try
+            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
             {
-                BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                livro = bll.ListarLivroPorCodigo(codigo);
-                txtCodigoLivro.Text = livro.CodigoLivro;
-                txtTituloLivro.Text = livro.TituloLivro;
-                txtAutorLivro.Text = livro.AutorLivro;
+                MessageBox.Show("Erro preencha os campos");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
+                try
+                {
+                    BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
+                    livro = bll.ListarLivroPorCodigo(codigo);
+                    txtCodigoLivro.Text = livro.CodigoLivro;
+                    txtTituloLivro.Text = livro.TituloLivro;
+                    txtAutorLivro.Text = livro.AutorLivro;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
+                txtIdLivro.ReadOnly = false;
             }
-            txtIdLivro.ReadOnly = true;
-
         }
 
         private void btnExibir_Click(object sender, EventArgs e)
         {
-            try
+            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
             {
-                LivroBLL bll = new LivroBLL(banco,usuario, senha);
-                dgvLivro.DataSource = bll.SelecionarLivros();
+                MessageBox.Show("Erro preencha os campos");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
+                try
+                {
+                    LivroBLL bll = new LivroBLL(banco, usuario, senha);
+                    dgvLivro.DataSource = bll.SelecionarLivros();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
             }
         }
 

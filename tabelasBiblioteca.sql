@@ -21,7 +21,9 @@ create table bibEmprestimo
 	idLivro int not null,
 	idLeitor int not null,
 	dataEmprestimo datetime not null,
+	dataEmprestimoPrevisto datetime not null,
 	dataDevolucao datetime not null,
 	foreign key(idLivro) references bibLivro(idLivro),
 	foreign key(idLeitor) references bibLeitor(idLeitor)
 )
+
