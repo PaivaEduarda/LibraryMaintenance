@@ -83,7 +83,7 @@ namespace apBiblioteca_22125.UI
                     txtIdLivro.Text = "";
                     txtTituloLivro.Text = "";
 
-                    MessageBox.Show("Livro Excluido com sucesso!!!!!!!!");
+                    MessageBox.Show("Livro Excluído com sucesso!");
                 }
                 catch (Exception ex)
                 {
@@ -115,7 +115,6 @@ namespace apBiblioteca_22125.UI
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-                txtIdLivro.ReadOnly = true;
             }
         }
 

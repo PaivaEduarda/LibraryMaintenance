@@ -87,6 +87,30 @@ namespace BLL
 
         }
 
+        public Emprestimo ListarEmprestimoPorIdLeitor(int idLeitor)
+        {
+            try
+            {
+                dal = new DAL.EmprestimoDAL(banco, usuario, senha);
+                return dal.SelectById(idLeitor);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public Emprestimo ListarEmprestimoPorIdLivro(int idLivro)
+        {
+            try
+            {
+                dal = new DAL.EmprestimoDAL(banco, usuario, senha);
+                return dal.SelectById(idLivro);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Emprestimo ListarEmprestimoPorId(int id)
         {
             try
