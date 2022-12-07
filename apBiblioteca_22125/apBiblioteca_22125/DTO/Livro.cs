@@ -32,6 +32,7 @@ namespace DTO
             get => codigoLivro;
             set
             {
+                if(value.Length > tamanhoCodigo)
                 // remove qualquer caracter além do tamanho máximo do campo
                 value = value.Remove(tamanhoCodigo);
                 // preenche codigo com zeros à esquerda até completar o tamanho mãximo
@@ -45,6 +46,7 @@ namespace DTO
             get => tituloLivro;
             set
             {
+                if(value.Length > tamanhoTitulo)
                 // remove qualquer caracter além do tamanho máximo do campo
                 value = value.Remove(tamanhoTitulo);
                 // preenche título com espaços à direita até completar o tamanho mãximo
@@ -58,6 +60,7 @@ namespace DTO
             get { return autorLivro; }
             set
             {
+                if(value.Length>tamanhoAutor)
                 // remove qualquer caracter além do tamanho máximo do campo
                 value = value.Remove(tamanhoAutor);
                 // preenche título com espaços à direita até completar o tamanho mãximo

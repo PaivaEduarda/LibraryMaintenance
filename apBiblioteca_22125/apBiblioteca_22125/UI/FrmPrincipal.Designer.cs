@@ -81,7 +81,7 @@
             // 
             this.livrosToolStripMenuItem.Name = "livrosToolStripMenuItem";
             this.livrosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.livrosToolStripMenuItem.Text = "&Livros";
             this.livrosToolStripMenuItem.Click += new System.EventHandler(this.livrosToolStripMenuItem_Click);
             // 
@@ -89,7 +89,7 @@
             // 
             this.leitoresToolStripMenuItem.Name = "leitoresToolStripMenuItem";
             this.leitoresToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.leitoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.leitoresToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.leitoresToolStripMenuItem.Text = "L&eitores";
             this.leitoresToolStripMenuItem.Click += new System.EventHandler(this.leitoresToolStripMenuItem_Click);
             // 
@@ -101,7 +101,7 @@
             this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
             this.sairToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.sairToolStripMenuItem1.Text = "&Sair";
             // 
             // simToolStripMenuItem

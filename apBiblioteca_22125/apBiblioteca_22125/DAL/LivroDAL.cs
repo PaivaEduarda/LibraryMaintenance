@@ -13,7 +13,7 @@ namespace DAL
         public LivroDAL(string banco, string usuario, string senha)
         {
             _conexaoSQLServer =
-                "Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {banco};" +
+                $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {banco};" +
                 $"User id = {usuario}; passWord = {senha}";
         }
 
@@ -105,22 +105,25 @@ namespace DAL
         {
             try
             {
+                if(codigoDesejado.Length<10)
+                    codigoDesejado = codigoDesejado.PadLeft(10, '0');
                 String sql = "SELECT idLivro, codigoLivro, tituloLivro, autorLivro " +
-                             " FROM Livro" +
+                             " FROM bibLivro" +
                              " WHERE codigoLivro = @codigo";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
+                
                 cmd.Parameters.AddWithValue("@codigo", codigoDesejado);
                 _conexao.Open();
                 SqlDataReader dr;
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);//erro
                 Livro livro = null;
                 if (dr.Read())
                 {
                     livro = new Livro(Convert.ToInt32(dr["idLivro"]),
                                       dr["codigoLivro"].ToString(),
                                       dr["tituloLivro"].ToString(),
-                                      dr["autoroLIvro"].ToString());
+                                      dr["autorLIvro"].ToString());
                 }
                 return livro;
             }

@@ -29,6 +29,10 @@ namespace apBiblioteca_22125.UI
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     bll.IncluirLivro(livro);
+                    MessageBox.Show("Livro incluido com sucesso");
+         
+                    Livro x = bll.ListarLivroPorCodigo(txtCodigoLivro.Text);
+                    txtIdLivro.Text = x.IdLivro + "";
                 }
                 catch (Exception ex)
                 {
@@ -36,7 +40,7 @@ namespace apBiblioteca_22125.UI
                 }
             }
         }
-
+      
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
@@ -74,6 +78,12 @@ namespace apBiblioteca_22125.UI
                 {
                     BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     bll.ExcluirLivro(livro);
+                    txtAutorLivro.Text = "";
+                    txtCodigoLivro.Text = "";
+                    txtIdLivro.Text = "";
+                    txtTituloLivro.Text = "";
+
+                    MessageBox.Show("Livro Excluido com sucesso!!!!!!!!");
                 }
                 catch (Exception ex)
                 {
@@ -84,9 +94,9 @@ namespace apBiblioteca_22125.UI
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
-            string codigo = txtIdLivro.Text;
+            string codigo = txtCodigoLivro.Text;
             Livro livro = null;
-            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
+            if ( txtCodigoLivro.Text == "" )
             {
                 MessageBox.Show("Erro preencha os campos");
             }
@@ -96,6 +106,7 @@ namespace apBiblioteca_22125.UI
                 {
                     BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     livro = bll.ListarLivroPorCodigo(codigo);
+                    txtIdLivro.Text = livro.IdLivro+" ";
                     txtCodigoLivro.Text = livro.CodigoLivro;
                     txtTituloLivro.Text = livro.TituloLivro;
                     txtAutorLivro.Text = livro.AutorLivro;
@@ -104,7 +115,7 @@ namespace apBiblioteca_22125.UI
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-                txtIdLivro.ReadOnly = false;
+                txtIdLivro.ReadOnly = true;
             }
         }
 
@@ -119,7 +130,19 @@ namespace apBiblioteca_22125.UI
                 try
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                    dgvLivro.DataSource = bll.SelecionarLivros();
+                    dgvLivro.Rows.Clear();
+                    DataTable tabela = bll.SelecionarLivros();
+                    for(int i = 0; i < tabela.Rows.Count; i++)
+                    {
+                        if (i != tabela.Rows.Count - 1)
+                            dgvLivro.Rows.Add();
+                        dgvLivro[0, i].Value = tabela.Rows[i][0];
+                        dgvLivro[1, i].Value = tabela.Rows[i][1];
+                        dgvLivro[2, i].Value = tabela.Rows[i][2];
+                        dgvLivro[3, i].Value = tabela.Rows[i][3];
+                    }
+
+                    tbLivro.SelectTab(tpLista);
                 }
                 catch (Exception ex)
                 {

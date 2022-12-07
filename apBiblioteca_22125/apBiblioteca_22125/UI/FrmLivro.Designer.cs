@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbLivro = new System.Windows.Forms.TabControl();
             this.tpCadastro = new System.Windows.Forms.TabPage();
             this.btnExibir = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -50,24 +50,24 @@
             this.codigoLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.tbLivro.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tbLivro
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tpCadastro);
-            this.tabControl1.Controls.Add(this.tpLista);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(627, 269);
-            this.tabControl1.TabIndex = 0;
+            this.tbLivro.Controls.Add(this.tpCadastro);
+            this.tbLivro.Controls.Add(this.tpLista);
+            this.tbLivro.Location = new System.Drawing.Point(12, 12);
+            this.tbLivro.Name = "tbLivro";
+            this.tbLivro.SelectedIndex = 0;
+            this.tbLivro.Size = new System.Drawing.Size(627, 269);
+            this.tbLivro.TabIndex = 0;
             // 
             // tpCadastro
             // 
@@ -243,7 +243,7 @@
             this.autorLivro});
             this.dgvLivro.Location = new System.Drawing.Point(3, 3);
             this.dgvLivro.Name = "dgvLivro";
-            this.dgvLivro.Size = new System.Drawing.Size(616, 230);
+            this.dgvLivro.Size = new System.Drawing.Size(616, 223);
             this.dgvLivro.TabIndex = 0;
             // 
             // idLivro
@@ -283,11 +283,11 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(651, 293);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbLivro);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Name = "FrmLivro";
             this.Text = "Manutenções de Livros da Biblioteca";
-            this.tabControl1.ResumeLayout(false);
+            this.tbLivro.ResumeLayout(false);
             this.tpCadastro.ResumeLayout(false);
             this.tpCadastro.PerformLayout();
             this.tpLista.ResumeLayout(false);
@@ -298,7 +298,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tbLivro;
         private System.Windows.Forms.TabPage tpCadastro;
         private System.Windows.Forms.TabPage tpLista;
         private System.Windows.Forms.Label label4;

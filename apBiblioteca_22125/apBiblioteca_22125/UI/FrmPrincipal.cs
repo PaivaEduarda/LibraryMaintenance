@@ -44,15 +44,15 @@ namespace apBiblioteca_22125
                 try
                 {
                     string _conexaoSQLServer =
-                    $"Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {txtBanco};" +
-                    $"User id = {txtUsuario}; passWord = {txtSenha}";
+                    $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {txtBanco.Text};" +
+                    $"User id = {txtUsuario.Text}; passWord = {txtSenha.Text}";
                     SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
                     _conexao.Open();
-                    formEmprestimo.Show();
+                    formLivros.Show();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                    MessageBox.Show(" Erro aqui!");
                 }
             }
         }
@@ -70,11 +70,11 @@ namespace apBiblioteca_22125
                 try
                 {
                     string _conexaoSQLServer =
-                    $"Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {txtBanco};" +
-                    $"User id = {txtUsuario}; passWord = {txtSenha}";
+                    $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {txtBanco.Text};" +
+                    $"User id = {txtUsuario.Text}; passWord = {txtSenha.Text}";
                     SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
                     _conexao.Open();
-                    formEmprestimo.Show();
+                    formLeitores.Show();
                 }
                 catch (Exception ex)
                 {
@@ -96,8 +96,8 @@ namespace apBiblioteca_22125
                 try
                 {
                     string _conexaoSQLServer =
-                    $"Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {txtBanco};" +
-                    $"User id = {txtUsuario}; passWord = {txtSenha}";
+                    $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {txtBanco.Text};" +
+                    $"User id = {txtUsuario.Text}; passWord = {txtSenha.Text}";
                     SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
                     _conexao.Open();
                     formEmprestimo.Show();
@@ -106,7 +106,7 @@ namespace apBiblioteca_22125
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-                
+
             }
         }
 
@@ -123,8 +123,8 @@ namespace apBiblioteca_22125
                 try
                 {
                     string _conexaoSQLServer =
-                    $"Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {txtBanco};" +
-                    $"User id = {txtUsuario}; passWord = {txtSenha}";
+                    $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {txtBanco.Text};" +
+                    $"User id = {txtUsuario.Text}; passWord = {txtSenha.Text}";
                     SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
                     _conexao.Open();
                     formDevolucao.Show();
@@ -133,7 +133,7 @@ namespace apBiblioteca_22125
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-                
+
             }
         }
     }

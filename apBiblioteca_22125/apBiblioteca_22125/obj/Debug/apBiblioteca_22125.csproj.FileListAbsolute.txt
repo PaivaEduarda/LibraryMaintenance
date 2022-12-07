@@ -23,3 +23,18 @@ Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBibliotec
 Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe.config
 Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe
 Z:\2o Semestre\1 - Ensino Técnico\2 - BD2\0 - Outros\Trabalho de BD\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.pdb
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe.config
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.pdb
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.AssemblyReference.cache
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.SuggestedBindingRedirects.cache
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.Properties.Resources.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmDevolucao.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmEmprestimo.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmLeitor.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmLivro.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.FrmPrincipal.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.GenerateResource.cache
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.CoreCompileInputs.cache
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.exe
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.pdb

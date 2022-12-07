@@ -46,7 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
-            this.dgvLeitor = new System.Windows.Forms.DataGridView();
+            this.listaLivro = new System.Windows.Forms.DataGridView();
             this.idLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.tabControl1.SuspendLayout();
             this.tpLeitores.SuspendLayout();
             this.tpLista.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeitor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaLivro)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -233,7 +233,7 @@
             // 
             // tpLista
             // 
-            this.tpLista.Controls.Add(this.dgvLeitor);
+            this.tpLista.Controls.Add(this.listaLivro);
             this.tpLista.Location = new System.Drawing.Point(4, 22);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
@@ -242,22 +242,22 @@
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
             // 
-            // dgvLeitor
+            // listaLivro
             // 
-            this.dgvLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listaLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLeitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLeitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.listaLivro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listaLivro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idLeitor,
             this.nomeLeitor,
             this.telefoneLeitor,
             this.EmailLeitor,
             this.enderecoLeitor});
-            this.dgvLeitor.Location = new System.Drawing.Point(0, 3);
-            this.dgvLeitor.Name = "dgvLeitor";
-            this.dgvLeitor.Size = new System.Drawing.Size(543, 236);
-            this.dgvLeitor.TabIndex = 0;
+            this.listaLivro.Location = new System.Drawing.Point(0, 3);
+            this.listaLivro.Name = "listaLivro";
+            this.listaLivro.Size = new System.Drawing.Size(543, 236);
+            this.listaLivro.TabIndex = 0;
             // 
             // idLeitor
             // 
@@ -311,7 +311,7 @@
             this.tpLeitores.ResumeLayout(false);
             this.tpLeitores.PerformLayout();
             this.tpLista.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeitor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaLivro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -336,7 +336,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpLista;
-        private System.Windows.Forms.DataGridView dgvLeitor;
+        private System.Windows.Forms.DataGridView listaLivro;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneLeitor;

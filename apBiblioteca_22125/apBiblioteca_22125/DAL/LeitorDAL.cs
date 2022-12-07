@@ -16,7 +16,7 @@ namespace DAL
         public LeitorDAL(string banco, string usuario, string senha)
         {
             _conexaoSQLServer =
-            "Data Source = regulus.cotuca.unicamp,br; Initial Catalog = {banco};" +
+            $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {banco};" +
             $"User id = {usuario}; passWord = {senha}";
         }
 
