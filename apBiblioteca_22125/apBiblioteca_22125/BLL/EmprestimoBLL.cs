@@ -92,7 +92,7 @@ namespace BLL
             try
             {
                 dal = new DAL.EmprestimoDAL(banco, usuario, senha);
-                return dal.SelectById(idLeitor);
+                return dal.SelectByIdLeitor(idLeitor);
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace BLL
             try
             {
                 dal = new DAL.EmprestimoDAL(banco, usuario, senha);
-                return dal.SelectById(idLivro);
+                return dal.SelectByIdLivro(idLivro);
             }
             catch (Exception ex)
             {

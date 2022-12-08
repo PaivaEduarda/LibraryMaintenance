@@ -106,6 +106,69 @@ namespace DAL
             }
 
         }
+        public Emprestimo SelectByIdLivro(int idDesejado)
+        {
+            try
+            {
+                String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
+                             "DataDevolucaoPrevista, dataDevolucaoReal FROM bibEmprestimo" +
+                             " WHERE idLivor = @id";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@id", idDesejado);
+                _conexao.Open();
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Emprestimo emprestimo = null;
+                if (dr.Read()) //se houve um registro retornado
+                {
+                    emprestimo = new Emprestimo(Convert.ToInt32(dr["idEmprestimo"]),
+                                      Convert.ToInt32(dr["idLeitor"]),
+                                      Convert.ToInt32(dr["idELivro"]),
+                                      Convert.ToDateTime(dr["DataDevolucaoPrevista"]),
+                                      Convert.ToDateTime(dr["dataDevolucaoReal"]),
+                                      Convert.ToDateTime(dr["dataEmprestimo"]));
+                }
+                return emprestimo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public Emprestimo SelectByIdLeitor(int idDesejado)
+        {
+            try
+            {
+                Emprestimo emprestimo = null;
+                String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
+                             "DataDevolucaoPrevista, dataDevolucaoReal FROM bibEmprestimo" +
+                             " WHERE idLeitor = @id";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@id", idDesejado);
+                _conexao.Open();
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                
+                if (dr.Read()) //se houve um registro retornado
+                {
+                    emprestimo = new Emprestimo(Convert.ToInt32(dr["idEmprestimo"]),
+                                      Convert.ToInt32(dr["idLeitor"]),
+                                      Convert.ToInt32(dr["idELivro"]),
+                                      Convert.ToDateTime(dr["DataDevolucaoPrevista"]),
+                                      Convert.ToDateTime(dr["dataDevolucaoReal"]),
+                                      Convert.ToDateTime(dr["dataEmprestimo"]));
+                }
+                return emprestimo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
         public void InsertEmprestimo(Emprestimo qualEmprestimo)
         {
