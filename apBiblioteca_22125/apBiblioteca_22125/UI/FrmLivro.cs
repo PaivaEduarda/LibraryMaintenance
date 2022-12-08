@@ -57,6 +57,7 @@ namespace apBiblioteca_22125.UI
                 {
                     BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     bll.AlterarLivro(livro);
+                    MessageBox.Show("Livro alterado com sucesso!");
                 }
                 catch (Exception ex)
                 {
@@ -67,13 +68,13 @@ namespace apBiblioteca_22125.UI
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
+            if ( txtCodigoLivro.Text == "")
             {
                 MessageBox.Show("Erro preencha os campos");
             }
             else
             {
-                Livro livro = new Livro(Convert.ToInt32(txtIdLivro.Text), "", "", "");
+                Livro livro = new Livro(Convert.ToInt32(txtIdLivro.Text), txtCodigoLivro.Text, "", "");
                 try
                 {
                     BLL.LivroBLL bll = new LivroBLL(banco, usuario, senha);
@@ -118,14 +119,10 @@ namespace apBiblioteca_22125.UI
             }
         }
 
+      
+
         private void btnExibir_Click(object sender, EventArgs e)
         {
-            if (txtTituloLivro.Text == "" || txtCodigoLivro.Text == "" || txtAutorLivro.Text == "")
-            {
-                MessageBox.Show("Erro preencha os campos");
-            }
-            else
-            {
                 try
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
@@ -147,7 +144,6 @@ namespace apBiblioteca_22125.UI
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-            }
         }
 
         public FrmLivro()

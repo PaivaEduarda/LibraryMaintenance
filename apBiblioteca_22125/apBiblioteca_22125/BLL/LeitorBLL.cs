@@ -99,7 +99,18 @@ namespace BLL
                 throw ex;
             }
         }
-
+        public Leitor ListarLeitorPorTelefone( string telefone)
+        {
+            try
+            {
+                dal = new DAL.LeitorDAL(banco, usuario, senha);
+                return dal.SelectByTelefone(telefone);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

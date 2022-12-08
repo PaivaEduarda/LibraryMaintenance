@@ -222,10 +222,10 @@
             // tpLista
             // 
             this.tpLista.Controls.Add(this.dgvLivro);
-            this.tpLista.Location = new System.Drawing.Point(4, 29);
+            this.tpLista.Location = new System.Drawing.Point(4, 22);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(619, 236);
+            this.tpLista.Size = new System.Drawing.Size(619, 243);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;

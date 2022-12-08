@@ -30,6 +30,7 @@ namespace apBiblioteca_22125.UI
                 {
                     BLL.LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
                     bll.AlterarLeitor(leitor);
+                    MessageBox.Show("Leitor alterado com sucesso!");
                 }
                 catch (Exception ex)
                 {
@@ -40,15 +41,23 @@ namespace apBiblioteca_22125.UI
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (txtNomeLeitor.Text == "" || txtTelefone.Text == "" || txtEndereco.Text == "" || txtEmail.Text == "")
-                MessageBox.Show("Erro! Preencha os campos!");
+            if (txtTelefone.Text == "")
+                MessageBox.Show("Para ocorrer a exclusão é necessário o telefone do leitor!");
             else
             {
+                BLL.LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
+                Leitor x = bll.ListarLeitorPorTelefone(txtTelefone.Text);
+                txtIdLeitor.Text = x.IdLeitor + "";
                 Leitor leitor = new Leitor(Convert.ToInt32(txtIdLeitor.Text), "", "", "", "");
                 try
                 {
-                    BLL.LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
                     bll.ExcluirLeitor(leitor);
+                    MessageBox.Show("Leitor excluido com sucesso!");
+                    txtIdLeitor.Text = "";
+                    txtNomeLeitor.Text = "";
+                    txtTelefone.Text = "";
+                    txtEndereco.Text = "";
+                    txtEmail.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -59,44 +68,53 @@ namespace apBiblioteca_22125.UI
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
-            int idLeitor = int.Parse(txtIdLeitor.Text);
-            Leitor leitor = null;
-            if (txtNomeLeitor.Text == "" || txtTelefone.Text == "" || txtEndereco.Text == "" || txtEmail.Text == "")
-                MessageBox.Show("Erro! Preencha os campos!");
+            if (txtTelefone.Text == "")
+                MessageBox.Show("Para ocorrer a exclusão é necessário o telefone do leitor!");
+
             else
             {
                 try
                 {
                     BLL.LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
-                    leitor = bll.ListarLeitorPorId(idLeitor);
-                    txtNomeLeitor.Text = leitor.NomeLeitor;
-                    txtEmail.Text = leitor.EmailLeitor;
-                    txtTelefone.Text = leitor.TelefoneLeitor;
-                    txtEndereco.Text = leitor.EnderecoLeitor;
+                    Leitor x = bll.ListarLeitorPorTelefone(txtTelefone.Text);
+
+                    txtIdLeitor.Text = x.IdLeitor + "";
+                    txtNomeLeitor.Text = x.NomeLeitor;
+                    txtEmail.Text = x.EmailLeitor;
+                    txtTelefone.Text = x.TelefoneLeitor;
+                    txtEndereco.Text = x.EnderecoLeitor;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-                txtIdLeitor.ReadOnly = false;
             }
         }
 
         private void btnExibir_Click(object sender, EventArgs e)
         {
-            if (txtNomeLeitor.Text == "" || txtTelefone.Text == "" || txtEndereco.Text == "" || txtEmail.Text == "")
-                MessageBox.Show("Erro! Preencha os campos!");
-            else
+            try
             {
-                try
+                LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
+                dgvLeitor.Rows.Clear();
+                DataTable tabela = bll.SelecionarLeitor();
+                for (int i = 0; i < tabela.Rows.Count; i++)
                 {
-                    LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                    listaLivro.DataSource = bll.SelecionarLivros();
+                    if (i != tabela.Rows.Count - 1)
+                        dgvLeitor.Rows.Add();
+                    dgvLeitor[0, i].Value = tabela.Rows[i][0];
+                    dgvLeitor[1, i].Value = tabela.Rows[i][1];
+                    dgvLeitor[2, i].Value = tabela.Rows[i][2];
+                    dgvLeitor[3, i].Value = tabela.Rows[i][3];
+                    dgvLeitor[4, i].Value = tabela.Rows[i][4];
+
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(" Erro : " + ex.Message.ToString());
-                }
+
+                tcLeitor.SelectTab(tpLista);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" Erro : " + ex.Message.ToString());
             }
         }
 
@@ -115,6 +133,9 @@ namespace apBiblioteca_22125.UI
                 {
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
                     bll.IncluirLeitor(leitor);
+                    MessageBox.Show("Leitor inserido com suceso!");
+                    Leitor x = bll.ListarLeitorPorTelefone(txtTelefone.Text);
+                    txtIdLeitor.Text = x.IdLeitor + "";
                 }
                 catch (Exception ex)
                 {
