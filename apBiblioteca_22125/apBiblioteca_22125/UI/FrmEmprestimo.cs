@@ -19,19 +19,23 @@ namespace apBiblioteca_22125.UI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if ( txtIdLeitor.Text == "" || txtIdLivro.Text == "")
+            if (txtIdLeitor.Text == "" || txtIdLivro.Text == "")
                 MessageBox.Show("Erro! Preencha os campos corretamente!");
             else
             {
+                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
+                txtIdEmprestimo.Text = x.IdEmprestimo + "";
+
                 Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
                                        int.Parse(txtIdLivro.Text),
                                        int.Parse(txtIdLeitor.Text),
-                                       dataEmprestimo.Value,
-                                       dataDeDevolucao.Value, dataDeDevolucaoPrevista.Value);
+                                       dataEmprestimo.Value, dataDeDevolucaoPrevista.Value
+                                       , dataDeDevolucao.Value);
                 try
                 {
-                    BLL.EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     bll.AlterarEmprestimo(emprestimo);
+                    MessageBox.Show("Emprestimo alterado com sucesso!");
                 }
                 catch (Exception ex)
                 {
@@ -47,11 +51,18 @@ namespace apBiblioteca_22125.UI
 
             else
             {
+                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
+                txtIdEmprestimo.Text = x.IdEmprestimo + "";
+
                 Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0, new DateTime(), new DateTime(), new DateTime());
                 try
                 {
-                    BLL.EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     bll.ExcluirEmprestimo(emprestimo);
+                    MessageBox.Show("Emprestimo excluído com sucesso!");
+                    txtIdEmprestimo.Text = "";
+                    txtIdLeitor.Text = "";
+                    txtIdLivro.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -67,7 +78,7 @@ namespace apBiblioteca_22125.UI
             {
                 BLL.EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                 bll.ExcluirEmprestimo(emprestimo);
-                MessageBox.Show("Livro Exlcluído com sucesso!");
+                MessageBox.Show("Emprestimo excluído com sucesso!");
                 txtIdEmprestimo.Text = "";
                 txtIdLeitor.Text = "";
                 txtIdLivro.Text = "";
@@ -79,34 +90,31 @@ namespace apBiblioteca_22125.UI
         }
         private void btnExibir_Click(object sender, EventArgs e)
         {
-            if (txtIdLeitor.Text == "" || txtIdLivro.Text == "")
-                MessageBox.Show("Erro! Preencha os campos corretamente!");
-            else
-            {
-                try
-                {
-                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    dgvEmprestimo.Rows.Clear();
-                    DataTable tabela = bll.SelecionarEmprestimos();
-                    for (int i = 0; i < tabela.Rows.Count; i++)
-                    {
-                        if (i != tabela.Rows.Count - 1)
-                            dgvEmprestimo.Rows.Add();
-                        dgvEmprestimo[0, i].Value = tabela.Rows[i][0];
-                        dgvEmprestimo[1, i].Value = tabela.Rows[i][1];
-                        dgvEmprestimo[2, i].Value = tabela.Rows[i][2];
-                        dgvEmprestimo[3, i].Value = tabela.Rows[i][3];
-                        dgvEmprestimo[4, i].Value = tabela.Rows[i][4];
-                        dgvEmprestimo[5, i].Value = tabela.Rows[i][5];
 
-                    }
-                    tcEmprestimoseDevolucoes.SelectTab(listatb);
-                }
-                catch (Exception ex)
+            try
+            {
+                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                dgvEmprestimo.Rows.Clear();
+                DataTable tabela = bll.SelecionarEmprestimos();
+                for (int i = 0; i < tabela.Rows.Count; i++)
                 {
-                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                    if (i != tabela.Rows.Count - 1)
+                        dgvEmprestimo.Rows.Add();
+                    dgvEmprestimo[0, i].Value = tabela.Rows[i][0];
+                    dgvEmprestimo[1, i].Value = tabela.Rows[i][1];
+                    dgvEmprestimo[2, i].Value = tabela.Rows[i][2];
+                    dgvEmprestimo[3, i].Value = tabela.Rows[i][3];
+                    dgvEmprestimo[4, i].Value = tabela.Rows[i][4];
+                    dgvEmprestimo[5, i].Value = tabela.Rows[i][5];
+
                 }
+                tcEmprestimoseDevolucoes.SelectTab(listatb);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" Erro : " + ex.Message.ToString());
+            }
+
         }
         public Boolean livrosAtrasados()
         {
@@ -152,70 +160,73 @@ namespace apBiblioteca_22125.UI
                     }
                     else
                     {*/
-                        emprestimo.IdLivro = int.Parse(txtIdLivro.Text);
-                        emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
-                        emprestimo.DataEmprestimo = dataEmprestimo.Value;
-                        emprestimo.DataDevolucaoPrevista = dataDeDevolucaoPrevista.Value;
-                        emprestimo.DataDevolucaoReal = dataDeDevolucao.Value;
-                    //}
-            
+                emprestimo.IdLivro = int.Parse(txtIdLivro.Text);
+                emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
+                emprestimo.DataEmprestimo = dataEmprestimo.Value;
+                emprestimo.DataDevolucaoPrevista = dataDeDevolucaoPrevista.Value;
+                emprestimo.DataDevolucaoReal = dataDeDevolucao.Value;
+                //}
 
-                    try
-                    {
-                        bll = new EmprestimoBLL(banco, usuario, senha);
-                        Emprestimo emprestimos = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
+
+                try
+                {
+                    bll = new EmprestimoBLL(banco, usuario, senha);
+                    Emprestimo emprestimos = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
                     if (emprestimos == null)
                     {
                         bll.IncluirEmprestimo(emprestimo);
                         MessageBox.Show("Emprestimo incluido com sucesso!");
                         Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
-                        txtIdLivro.Text = x.IdLivro + "";
+                        txtIdEmprestimo.Text = x.IdEmprestimo + "";
                     }
                     else
                         MessageBox.Show("Livro Emprestado!");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(" Erro : " + ex.Message.ToString());
-                    }
-               // }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
+                // }
             }
 
         }
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
-            Emprestimo emprestimo = null;
-            Emprestimo findByLeitor = null;
-            Emprestimo findByLivro = null;
-
-
-            if (txtIdLeitor.Text == "" & txtIdLivro.Text == "")
-                MessageBox.Show("Erro! Preencha os campos corretamente!");
+            EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+            Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
+            if (x == null)
+                MessageBox.Show("Empréstimo inexistente!");
             else
             {
-                try
+                txtIdEmprestimo.Text = x.IdEmprestimo + "";
+                Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), int.Parse(txtIdLeitor.Text), int.Parse(txtIdLivro.Text), dataEmprestimo.Value, dataDeDevolucaoPrevista.Value, dataDeDevolucao.Value);
+
+
+                if (txtIdLeitor.Text == "" & txtIdLivro.Text == "")
+                    MessageBox.Show("Erro! Preencha os campos corretamente!");
+                else
                 {
-                    BLL.EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    findByLeitor = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
-                    findByLivro = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text));
-                    if (findByLeitor != null)
+                    try
                     {
-                        emprestimo = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
+                        if (bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text)) != null)
+                        {
+                            emprestimo = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
+                        }
+                        else
+                            if (bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text)) != null)
+                        {
+                            emprestimo = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text));
+                        }
+                        txtIdLivro.Text = emprestimo.IdLivro + "";
+                        txtIdLeitor.Text = emprestimo.IdLeitor + "";
+                        dataEmprestimo.Value = emprestimo.DataEmprestimo;
+                        dataDeDevolucaoPrevista.Value = emprestimo.DataDevolucaoPrevista;
                     }
-                    else
-                        if (findByLivro != null)
+                    catch (Exception ex)
                     {
-                        emprestimo = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text));
+                        MessageBox.Show(" Erro : " + ex.Message.ToString());
                     }
-                    txtIdLivro.Text = emprestimo.IdLivro.ToString();
-                    txtIdLeitor.Text = emprestimo.IdLeitor.ToString();
-                    dataEmprestimo.Value = emprestimo.DataEmprestimo;
-                    dataDeDevolucaoPrevista.Value = emprestimo.DataDevolucaoPrevista;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
         }
@@ -260,7 +271,7 @@ namespace apBiblioteca_22125.UI
 
         private void btnExcluirDev_Click(object sender, EventArgs e)
         {
-            if ( txtIdLeitor.Text == "" || txtIdLivro.Text == "")
+            if (txtIdLeitor.Text == "" || txtIdLivro.Text == "")
                 MessageBox.Show("Erro ao preencher os campos");
             else
             {
@@ -283,7 +294,7 @@ namespace apBiblioteca_22125.UI
 
         private void btnExibirDev_Click(object sender, EventArgs e)
         {
-            if ( txtIdLivro.Text == "" || dataDeDevolucao.Value > dataDeDevolucaoPrevista.Value)
+            if (txtIdLivro.Text == "" || dataDeDevolucao.Value > dataDeDevolucaoPrevista.Value)
                 MessageBox.Show("Erro ao preencher os campos");
             else
             {
@@ -315,29 +326,30 @@ namespace apBiblioteca_22125.UI
 
         private void btnNovoDev_Click(object sender, EventArgs e)
         {
-           
-            
-                if (txtIdEmprestimo.Text == "" || txtIdLeitor.Text == "" || txtIdLivro.Text == "" )
-                    MessageBox.Show("Erro ao preencher os campos");
+
+
+            if (txtIdEmprestimo.Text == "" || txtIdLeitor.Text == "" || txtIdLivro.Text == "")
+                MessageBox.Show("Erro ao preencher os campos");
+            else
+            {
+                Emprestimo emprestimo = new Emprestimo(0, 0, 0, new DateTime(), new DateTime(), new DateTime());
+                emprestimo.IdLeitor = int.Parse(txtIdLivro.Text);
+                emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
+                emprestimo.DataDevolucaoReal = dataDeDevolucao.Value;
+                emprestimo.DataDevolucaoPrevista = dataDeDevolucaoPrevista.Value;
+
+                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                Emprestimo livrosEmprestados = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
+                Emprestimo livroIdEmprestado = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
+
+                if (livrosEmprestados == null && livroIdEmprestado == null)
+                    MessageBox.Show("Erro de devolução, verifique o id do leitor e o id do livro!");
                 else
                 {
-                    Emprestimo emprestimo = new Emprestimo(0, 0, 0, new DateTime(), new DateTime(), new DateTime());
-                    emprestimo.IdLeitor = int.Parse(txtIdLivro.Text);
-                    emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
-                    emprestimo.DataDevolucaoReal = dataDeDevolucao.Value;
-                    emprestimo.DataDevolucaoPrevista = dataDeDevolucaoPrevista.Value;
-
-                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    Emprestimo livrosEmprestados = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
-                    Emprestimo livroIdEmprestado = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
-
-                    if (livrosEmprestados == null && livroIdEmprestado == null)
-                        MessageBox.Show("Erro de devolução, verifique o id do leitor e o id do livro!");
-                    else
-                    {
                     if (dataDeDevolucao.Value < dataDeDevolucaoPrevista.Value)
                         MessageBox.Show("Erro, preencha os campos corretamente!");
-                    else {
+                    else
+                    {
                         if (dataDeDevolucao.Value > dataDeDevolucaoPrevista.Value)
                             MessageBox.Show("Livro atrasado!!!!!");
                         try
@@ -350,14 +362,14 @@ namespace apBiblioteca_22125.UI
                             MessageBox.Show(" Erro : " + ex.Message.ToString());
                         }
                     }
-                    }
+                }
             }
 
         }
 
         private void btnAlterarDev_Click(object sender, EventArgs e)
         {
-            if ( txtIdLeitor.Text == "" || txtIdLivro.Text == "" || dataDeDevolucao.Value > dataDeDevolucaoPrevista.Value)
+            if (txtIdLeitor.Text == "" || txtIdLivro.Text == "" || dataDeDevolucao.Value > dataDeDevolucaoPrevista.Value)
                 MessageBox.Show("Erro ao preencher os campos");
             else
             {

@@ -61,7 +61,7 @@ namespace DAL
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "dataEmprestimoPrevisto, dataDevolucaoReal FROM bibEmprestimo";
+                             "dataEmprestimoPrevisto, dataDevolucao FROM bibEmprestimo";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -202,10 +202,10 @@ namespace DAL
         {
             try
             {
-                String sql = "DELETE FROM bibEmpretimo WHERE idEmprestimo = @idEmprestimo ";
+                String sql = "DELETE FROM bibEmprestimo WHERE idEmprestimo = @idEmprestimo ";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
-                cmd.Parameters.AddWithValue("@idLivro", qualEmprestimo.IdEmprestimo);
+                cmd.Parameters.AddWithValue("@idEmprestimo", qualEmprestimo.IdEmprestimo);
                 _conexao.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -223,16 +223,17 @@ namespace DAL
             try
             {
                 String sql = "UPDATE bibEmprestimo " +
-                " SET DataEmprestimo= @DataEmprestimo ," +
-               " DataEmprestimoPrevisto=@DataEmprestimoPrevisto," +
-               " DataDevolucao=@DataDevolucaoReal " +
+                " SET DataEmprestimo = @dataEmprestimo, " +
+               " DataEmprestimoPrevisto = @dataDevolucaoPrevista," +
+               " dataDevolucao = @dataDevolucao " +
                " WHERE idEmprestimo = @idEmprestimo ";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@idEmprestimo", qualEmprestimo.IdEmprestimo);
                 cmd.Parameters.AddWithValue("@idLeitor", qualEmprestimo.IdLeitor);
                 cmd.Parameters.AddWithValue("@idLivro", qualEmprestimo.IdLivro);
                 cmd.Parameters.AddWithValue("@dataEmprestimo", qualEmprestimo.DataEmprestimo);
-                cmd.Parameters.AddWithValue("@dataDevolucaoReal", qualEmprestimo.DataDevolucaoReal);
+                cmd.Parameters.AddWithValue("@dataDevolucao", qualEmprestimo.DataDevolucaoReal);
                 cmd.Parameters.AddWithValue("@DataDevolucaoPrevista", qualEmprestimo.DataDevolucaoPrevista);
 
                 _conexao.Open();

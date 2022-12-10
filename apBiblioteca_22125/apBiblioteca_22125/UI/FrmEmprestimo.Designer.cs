@@ -62,11 +62,11 @@
             this.listatb = new System.Windows.Forms.TabPage();
             this.dgvEmprestimo = new System.Windows.Forms.DataGridView();
             this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDevolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDevolPrev = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataEmp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDevolPrev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDevolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEmprestimoseDevolucoes.SuspendLayout();
             this.tbEmprestimos.SuspendLayout();
             this.tbDev.SuspendLayout();
@@ -403,11 +403,11 @@
             this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestimo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idEmprestimo,
-            this.dataDevolucao,
-            this.dataDevolPrev,
             this.idLeitor,
             this.idLivro,
-            this.dataEmp});
+            this.dataEmp,
+            this.dataDevolPrev,
+            this.dataDevolucao});
             this.dgvEmprestimo.Location = new System.Drawing.Point(0, 0);
             this.dgvEmprestimo.Name = "dgvEmprestimo";
             this.dgvEmprestimo.Size = new System.Drawing.Size(681, 340);
@@ -419,38 +419,38 @@
             this.idEmprestimo.HeaderText = "Id Emprestimo:";
             this.idEmprestimo.Name = "idEmprestimo";
             this.idEmprestimo.ReadOnly = true;
-            this.idEmprestimo.Width = 93;
-            // 
-            // dataDevolucao
-            // 
-            this.dataDevolucao.HeaderText = "Data de devolução";
-            this.dataDevolucao.Name = "dataDevolucao";
-            // 
-            // dataDevolPrev
-            // 
-            this.dataDevolPrev.HeaderText = "Data de devolução prevista";
-            this.dataDevolPrev.Name = "dataDevolPrev";
+            this.idEmprestimo.Width = 101;
             // 
             // idLeitor
             // 
             this.idLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.idLeitor.HeaderText = "Id Leitor";
             this.idLeitor.Name = "idLeitor";
-            this.idLeitor.Width = 65;
+            this.idLeitor.Width = 70;
             // 
             // idLivro
             // 
             this.idLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.idLivro.HeaderText = "Id Livro";
             this.idLivro.Name = "idLivro";
-            this.idLivro.Width = 62;
+            this.idLivro.Width = 67;
             // 
             // dataEmp
             // 
             this.dataEmp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataEmp.HeaderText = "Data de empréstimo:";
+            this.dataEmp.HeaderText = "Data de empréstimo";
             this.dataEmp.Name = "dataEmp";
-            this.dataEmp.Width = 118;
+            this.dataEmp.Width = 115;
+            // 
+            // dataDevolPrev
+            // 
+            this.dataDevolPrev.HeaderText = "Data de devolução prevista";
+            this.dataDevolPrev.Name = "dataDevolPrev";
+            // 
+            // dataDevolucao
+            // 
+            this.dataDevolucao.HeaderText = "Data de devolução real";
+            this.dataDevolucao.Name = "dataDevolucao";
             // 
             // FrmEmprestimo
             // 
@@ -491,12 +491,6 @@
         private System.Windows.Forms.DateTimePicker dataEmprestimo;
         private System.Windows.Forms.TabPage listatb;
         private System.Windows.Forms.DataGridView dgvEmprestimo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmprestimo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDevolucao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDevolPrev;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idLeitor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idLivro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataEmp;
         private System.Windows.Forms.DateTimePicker dataDeDevolucaoPrevista;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dataDeDevolucao;
@@ -512,5 +506,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEmprestimo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idLivro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataEmp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataDevolPrev;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataDevolucao;
     }
 }
