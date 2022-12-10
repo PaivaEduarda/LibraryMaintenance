@@ -113,11 +113,15 @@ namespace apBiblioteca_22125.UI
             Emprestimo livro = null;
             EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
             Emprestimo livrosEmprestados = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
-
-            if (livrosEmprestados.DataDevolucaoReal > livrosEmprestados.DataDevolucaoPrevista)
-                return true;
-            else
+            if (livrosEmprestados.DataDevolucaoReal == null || livrosEmprestados.DataDevolucaoPrevista == null)
                 return false;
+            else
+            {
+                if (livrosEmprestados.DataDevolucaoReal > livrosEmprestados.DataDevolucaoPrevista)
+                    return true;
+                else
+                    return false;
+            }
         }
         private void btnNovo_Click(object sender, EventArgs e)
         {
@@ -133,7 +137,7 @@ namespace apBiblioteca_22125.UI
                 Emprestimo emprestimo = new Emprestimo(0, 0, 0, new DateTime(), new DateTime(), new DateTime());
                 Emprestimo livroIdEmprestado = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
 
-                Boolean livroEmprestado = livrosAtrasados();
+                /*Boolean livroEmprestado = livrosAtrasados();
                 if (livroIdEmprestado != null)
                     MessageBox.Show("Livro já emprestado");
                 else
@@ -147,38 +151,34 @@ namespace apBiblioteca_22125.UI
 
                     }
                     else
-                    {
-                        emprestimo.IdLeitor = int.Parse(txtIdLivro.Text);
+                    {*/
+                        emprestimo.IdLivro = int.Parse(txtIdLivro.Text);
                         emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
                         emprestimo.DataEmprestimo = dataEmprestimo.Value;
+                        emprestimo.DataDevolucaoPrevista = dataDeDevolucaoPrevista.Value;
                         emprestimo.DataDevolucaoReal = dataDeDevolucao.Value;
-                    }
-
+                    //}
+            
 
                     try
                     {
                         bll = new EmprestimoBLL(banco, usuario, senha);
+                        Emprestimo emprestimos = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
+                    if (emprestimos == null)
+                    {
                         bll.IncluirEmprestimo(emprestimo);
                         MessageBox.Show("Emprestimo incluido com sucesso!");
-                        findByLeitor = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
-                        findByLivro = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text));
-                        if (findByLeitor != null)
-                        {
-                            empr = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
-                        }
-                        else
-                            if (findByLivro != null)
-                        {
-                            empr = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text));
-                        }
-                        Emprestimo x = empr;
+                        Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
                         txtIdLivro.Text = x.IdLivro + "";
+                    }
+                    else
+                        MessageBox.Show("Livro Emprestado!");
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(" Erro : " + ex.Message.ToString());
                     }
-                }
+               // }
             }
 
         }

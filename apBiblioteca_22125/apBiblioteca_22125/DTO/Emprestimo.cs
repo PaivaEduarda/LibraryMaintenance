@@ -57,7 +57,7 @@ namespace DTO
                               DateTime dataEmprestimo,
                               DateTime dataDevolucaoPrevista,
                               DateTime dataDevolucaoReal)
-        {
+        {   
             this.IdEmprestimo = idEmprestimo;
             this.IdLeitor = idLeitor;
             this.IdLivro = idLivro;

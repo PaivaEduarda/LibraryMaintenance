@@ -30,6 +30,8 @@
         {
             this.tcEmprestimoseDevolucoes = new System.Windows.Forms.TabControl();
             this.tbEmprestimos = new System.Windows.Forms.TabPage();
+            this.dataDeDevolucaoPrevista = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.dataEmprestimo = new System.Windows.Forms.DateTimePicker();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -44,14 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbDev = new System.Windows.Forms.TabPage();
-            this.listatb = new System.Windows.Forms.TabPage();
-            this.dgvEmprestimo = new System.Windows.Forms.DataGridView();
-            this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDevolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDevolPrev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEmp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDeDevolucao = new System.Windows.Forms.DateTimePicker();
             this.btnExibirDev = new System.Windows.Forms.Button();
             this.btnExcluirDev = new System.Windows.Forms.Button();
             this.btnAlterarDev = new System.Windows.Forms.Button();
@@ -62,11 +57,16 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataDeDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.dataDeDevolucaoPrevista = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.listatb = new System.Windows.Forms.TabPage();
+            this.dgvEmprestimo = new System.Windows.Forms.DataGridView();
+            this.idEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDevolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDevolPrev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataEmp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEmprestimoseDevolucoes.SuspendLayout();
             this.tbEmprestimos.SuspendLayout();
             this.tbDev.SuspendLayout();
@@ -112,6 +112,23 @@
             this.tbEmprestimos.TabIndex = 0;
             this.tbEmprestimos.Text = "Empréstimos";
             this.tbEmprestimos.UseVisualStyleBackColor = true;
+            // 
+            // dataDeDevolucaoPrevista
+            // 
+            this.dataDeDevolucaoPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataDeDevolucaoPrevista.Location = new System.Drawing.Point(300, 145);
+            this.dataDeDevolucaoPrevista.Name = "dataDeDevolucaoPrevista";
+            this.dataDeDevolucaoPrevista.Size = new System.Drawing.Size(83, 20);
+            this.dataDeDevolucaoPrevista.TabIndex = 35;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(140, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(141, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Data de devolução prevista:";
             // 
             // dataEmprestimo
             // 
@@ -252,73 +269,13 @@
             this.tbDev.Text = "Devolução";
             this.tbDev.UseVisualStyleBackColor = true;
             // 
-            // listatb
+            // dataDeDevolucao
             // 
-            this.listatb.Controls.Add(this.dgvEmprestimo);
-            this.listatb.Location = new System.Drawing.Point(4, 22);
-            this.listatb.Name = "listatb";
-            this.listatb.Padding = new System.Windows.Forms.Padding(3);
-            this.listatb.Size = new System.Drawing.Size(580, 340);
-            this.listatb.TabIndex = 2;
-            this.listatb.Text = "Lista";
-            this.listatb.UseVisualStyleBackColor = true;
-            // 
-            // dgvEmprestimo
-            // 
-            this.dgvEmprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmprestimo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idEmprestimo,
-            this.dataDevolucao,
-            this.dataDevolPrev,
-            this.idLeitor,
-            this.idLivro,
-            this.dataEmp});
-            this.dgvEmprestimo.Location = new System.Drawing.Point(0, 0);
-            this.dgvEmprestimo.Name = "dgvEmprestimo";
-            this.dgvEmprestimo.Size = new System.Drawing.Size(681, 340);
-            this.dgvEmprestimo.TabIndex = 1;
-            // 
-            // idEmprestimo
-            // 
-            this.idEmprestimo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idEmprestimo.HeaderText = "Id Emprestimo:";
-            this.idEmprestimo.Name = "idEmprestimo";
-            this.idEmprestimo.ReadOnly = true;
-            this.idEmprestimo.Width = 93;
-            // 
-            // dataDevolucao
-            // 
-            this.dataDevolucao.HeaderText = "Data de devolução";
-            this.dataDevolucao.Name = "dataDevolucao";
-            // 
-            // dataDevolPrev
-            // 
-            this.dataDevolPrev.HeaderText = "Data de devolução prevista";
-            this.dataDevolPrev.Name = "dataDevolPrev";
-            // 
-            // idLeitor
-            // 
-            this.idLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idLeitor.HeaderText = "Id Leitor";
-            this.idLeitor.Name = "idLeitor";
-            this.idLeitor.Width = 65;
-            // 
-            // idLivro
-            // 
-            this.idLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idLivro.HeaderText = "Id Livro";
-            this.idLivro.Name = "idLivro";
-            this.idLivro.Width = 62;
-            // 
-            // dataEmp
-            // 
-            this.dataEmp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataEmp.HeaderText = "Data de empréstimo:";
-            this.dataEmp.Name = "dataEmp";
-            this.dataEmp.Width = 118;
+            this.dataDeDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataDeDevolucao.Location = new System.Drawing.Point(271, 146);
+            this.dataDeDevolucao.Name = "dataDeDevolucao";
+            this.dataDeDevolucao.Size = new System.Drawing.Size(102, 20);
+            this.dataDeDevolucao.TabIndex = 32;
             // 
             // btnExibirDev
             // 
@@ -409,15 +366,6 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "Identificação do Livro:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(111, 47);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(146, 13);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Identificação de Emprestimo: ";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -427,30 +375,82 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Data de Devolução:";
             // 
-            // dataDeDevolucao
+            // label9
             // 
-            this.dataDeDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataDeDevolucao.Location = new System.Drawing.Point(271, 146);
-            this.dataDeDevolucao.Name = "dataDeDevolucao";
-            this.dataDeDevolucao.Size = new System.Drawing.Size(102, 20);
-            this.dataDeDevolucao.TabIndex = 32;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(111, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Identificação de Emprestimo: ";
             // 
-            // dataDeDevolucaoPrevista
+            // listatb
             // 
-            this.dataDeDevolucaoPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataDeDevolucaoPrevista.Location = new System.Drawing.Point(300, 145);
-            this.dataDeDevolucaoPrevista.Name = "dataDeDevolucaoPrevista";
-            this.dataDeDevolucaoPrevista.Size = new System.Drawing.Size(83, 20);
-            this.dataDeDevolucaoPrevista.TabIndex = 35;
+            this.listatb.Controls.Add(this.dgvEmprestimo);
+            this.listatb.Location = new System.Drawing.Point(4, 22);
+            this.listatb.Name = "listatb";
+            this.listatb.Padding = new System.Windows.Forms.Padding(3);
+            this.listatb.Size = new System.Drawing.Size(580, 340);
+            this.listatb.TabIndex = 2;
+            this.listatb.Text = "Lista";
+            this.listatb.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // dgvEmprestimo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(140, 152);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 13);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Data de devolução prevista:";
+            this.dgvEmprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmprestimo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idEmprestimo,
+            this.dataDevolucao,
+            this.dataDevolPrev,
+            this.idLeitor,
+            this.idLivro,
+            this.dataEmp});
+            this.dgvEmprestimo.Location = new System.Drawing.Point(0, 0);
+            this.dgvEmprestimo.Name = "dgvEmprestimo";
+            this.dgvEmprestimo.Size = new System.Drawing.Size(681, 340);
+            this.dgvEmprestimo.TabIndex = 1;
+            // 
+            // idEmprestimo
+            // 
+            this.idEmprestimo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idEmprestimo.HeaderText = "Id Emprestimo:";
+            this.idEmprestimo.Name = "idEmprestimo";
+            this.idEmprestimo.ReadOnly = true;
+            this.idEmprestimo.Width = 93;
+            // 
+            // dataDevolucao
+            // 
+            this.dataDevolucao.HeaderText = "Data de devolução";
+            this.dataDevolucao.Name = "dataDevolucao";
+            // 
+            // dataDevolPrev
+            // 
+            this.dataDevolPrev.HeaderText = "Data de devolução prevista";
+            this.dataDevolPrev.Name = "dataDevolPrev";
+            // 
+            // idLeitor
+            // 
+            this.idLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idLeitor.HeaderText = "Id Leitor";
+            this.idLeitor.Name = "idLeitor";
+            this.idLeitor.Width = 65;
+            // 
+            // idLivro
+            // 
+            this.idLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idLivro.HeaderText = "Id Livro";
+            this.idLivro.Name = "idLivro";
+            this.idLivro.Width = 62;
+            // 
+            // dataEmp
+            // 
+            this.dataEmp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataEmp.HeaderText = "Data de empréstimo:";
+            this.dataEmp.Name = "dataEmp";
+            this.dataEmp.Width = 118;
             // 
             // FrmEmprestimo
             // 

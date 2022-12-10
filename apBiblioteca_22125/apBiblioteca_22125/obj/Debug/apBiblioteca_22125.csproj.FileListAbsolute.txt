@@ -53,3 +53,4 @@ C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBibliote
 C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe.config
 C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe
 C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.pdb
+C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.FrmAtrasados.resources
