@@ -33,6 +33,20 @@ namespace BLL
             }
             return tb;
         }
+        public DataTable SelecionarEmprestimosAtrasados()
+        {
+            DataTable tb = new DataTable();
+            try
+            {
+                dal = new DAL.EmprestimoDAL(banco, usuario, senha);
+                tb = dal.SelectEmprestimosAtrasados();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return tb;
+        }
 
         public void IncluirEmprestimo(Emprestimo emprestimo)
         {

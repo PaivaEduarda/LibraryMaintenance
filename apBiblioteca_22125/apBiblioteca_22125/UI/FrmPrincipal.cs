@@ -19,7 +19,7 @@ namespace apBiblioteca_22125
         UI.FrmLivro formLivros = null;
         UI.FrmLeitor formLeitores = null;
         UI.FrmEmprestimo formEmprestimo = null;
-        UI.FrmDevolucao formDevolucao = null;
+        UI.FrmAtrasados formAtrasados = null;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -116,10 +116,10 @@ namespace apBiblioteca_22125
                 MessageBox.Show("Preencha os dados de conexão!");
             else
             {
-                formDevolucao = new UI.FrmDevolucao();
-                formDevolucao.banco = txtBanco.Text;
-                formDevolucao.usuario = txtUsuario.Text;
-                formDevolucao.senha = txtSenha.Text;
+                formEmprestimo = new UI.FrmEmprestimo();
+                formEmprestimo.banco = txtBanco.Text;
+                formEmprestimo.usuario = txtUsuario.Text;
+                formEmprestimo.senha = txtSenha.Text;
                 try
                 {
                     string _conexaoSQLServer =
@@ -127,7 +127,34 @@ namespace apBiblioteca_22125
                     $"User id = {txtUsuario.Text}; passWord = {txtSenha.Text}";
                     SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
                     _conexao.Open();
-                    formDevolucao.Show();
+                    formEmprestimo.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
+
+            }
+        }
+
+        private void DevolucoesAtrasadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtBanco.Text == "" || txtUsuario.Text == "" || txtSenha.Text == "")
+                MessageBox.Show("Preencha os dados de conexão!");
+            else
+            {
+                formAtrasados = new UI.FrmAtrasados();
+                formAtrasados.banco = txtBanco.Text;
+                formAtrasados.usuario = txtUsuario.Text;
+                formAtrasados.senha = txtSenha.Text;
+                try
+                {
+                    string _conexaoSQLServer =
+                    $"Data Source = regulus.cotuca.unicamp.br; Initial Catalog = {txtBanco.Text};" +
+                    $"User id = {txtUsuario.Text}; passWord = {txtSenha.Text}";
+                    SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
+                    _conexao.Open();
+                    formAtrasados.Show();
                 }
                 catch (Exception ex)
                 {

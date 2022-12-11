@@ -39,6 +39,7 @@
             this.empréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DevolucoesAtrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBanco = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.livrosAtrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leitoresComLivrosAtrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -147,11 +146,17 @@
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.livrosAtrasadosToolStripMenuItem,
-            this.leitoresComLivrosAtrasadosToolStripMenuItem});
+            this.DevolucoesAtrasadosToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "&Relatórios";
+            // 
+            // DevolucoesAtrasadosToolStripMenuItem
+            // 
+            this.DevolucoesAtrasadosToolStripMenuItem.Name = "DevolucoesAtrasadosToolStripMenuItem";
+            this.DevolucoesAtrasadosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.DevolucoesAtrasadosToolStripMenuItem.Text = "Devoluções atrasadas";
+            this.DevolucoesAtrasadosToolStripMenuItem.Click += new System.EventHandler(this.DevolucoesAtrasadosToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -240,18 +245,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Banco de Dados: ";
             // 
-            // livrosAtrasadosToolStripMenuItem
-            // 
-            this.livrosAtrasadosToolStripMenuItem.Name = "livrosAtrasadosToolStripMenuItem";
-            this.livrosAtrasadosToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.livrosAtrasadosToolStripMenuItem.Text = "Livros atrasados";
-            // 
-            // leitoresComLivrosAtrasadosToolStripMenuItem
-            // 
-            this.leitoresComLivrosAtrasadosToolStripMenuItem.Name = "leitoresComLivrosAtrasadosToolStripMenuItem";
-            this.leitoresComLivrosAtrasadosToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.leitoresComLivrosAtrasadosToolStripMenuItem.Text = "Leitores com livros atrasados";
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,8 +288,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem empréstimoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem livrosAtrasadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem leitoresComLivrosAtrasadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DevolucoesAtrasadosToolStripMenuItem;
     }
 }
 

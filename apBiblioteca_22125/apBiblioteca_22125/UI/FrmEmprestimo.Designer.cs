@@ -52,9 +52,9 @@
             this.btnAlterarDev = new System.Windows.Forms.Button();
             this.btnNovoDev = new System.Windows.Forms.Button();
             this.btnProcurarDev = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtIdDevLeitor = new System.Windows.Forms.TextBox();
+            this.txtIdDevLivro = new System.Windows.Forms.TextBox();
+            this.txtIdDevEmprestimo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -254,9 +254,9 @@
             this.tbDev.Controls.Add(this.btnAlterarDev);
             this.tbDev.Controls.Add(this.btnNovoDev);
             this.tbDev.Controls.Add(this.btnProcurarDev);
-            this.tbDev.Controls.Add(this.textBox1);
-            this.tbDev.Controls.Add(this.textBox2);
-            this.tbDev.Controls.Add(this.textBox3);
+            this.tbDev.Controls.Add(this.txtIdDevLeitor);
+            this.tbDev.Controls.Add(this.txtIdDevLivro);
+            this.tbDev.Controls.Add(this.txtIdDevEmprestimo);
             this.tbDev.Controls.Add(this.label6);
             this.tbDev.Controls.Add(this.label7);
             this.tbDev.Controls.Add(this.label8);
@@ -272,7 +272,7 @@
             // dataDeDevolucao
             // 
             this.dataDeDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataDeDevolucao.Location = new System.Drawing.Point(271, 146);
+            this.dataDeDevolucao.Location = new System.Drawing.Point(271, 148);
             this.dataDeDevolucao.Name = "dataDeDevolucao";
             this.dataDeDevolucao.Size = new System.Drawing.Size(102, 20);
             this.dataDeDevolucao.TabIndex = 32;
@@ -327,26 +327,26 @@
             this.btnProcurarDev.UseVisualStyleBackColor = true;
             this.btnProcurarDev.Click += new System.EventHandler(this.btnProcurarDev_Click);
             // 
-            // textBox1
+            // txtIdDevLeitor
             // 
-            this.textBox1.Location = new System.Drawing.Point(271, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(102, 20);
-            this.textBox1.TabIndex = 25;
+            this.txtIdDevLeitor.Location = new System.Drawing.Point(271, 78);
+            this.txtIdDevLeitor.Name = "txtIdDevLeitor";
+            this.txtIdDevLeitor.Size = new System.Drawing.Size(102, 20);
+            this.txtIdDevLeitor.TabIndex = 25;
             // 
-            // textBox2
+            // txtIdDevLivro
             // 
-            this.textBox2.Location = new System.Drawing.Point(271, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(102, 20);
-            this.textBox2.TabIndex = 24;
+            this.txtIdDevLivro.Location = new System.Drawing.Point(271, 116);
+            this.txtIdDevLivro.Name = "txtIdDevLivro";
+            this.txtIdDevLivro.Size = new System.Drawing.Size(102, 20);
+            this.txtIdDevLivro.TabIndex = 24;
             // 
-            // textBox3
+            // txtIdDevEmprestimo
             // 
-            this.textBox3.Location = new System.Drawing.Point(271, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(102, 20);
-            this.textBox3.TabIndex = 23;
+            this.txtIdDevEmprestimo.Location = new System.Drawing.Point(271, 40);
+            this.txtIdDevEmprestimo.Name = "txtIdDevEmprestimo";
+            this.txtIdDevEmprestimo.Size = new System.Drawing.Size(102, 20);
+            this.txtIdDevEmprestimo.TabIndex = 23;
             // 
             // label6
             // 
@@ -369,7 +369,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(111, 152);
+            this.label8.Location = new System.Drawing.Point(111, 154);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 13);
             this.label8.TabIndex = 20;
@@ -410,7 +410,7 @@
             this.dataDevolucao});
             this.dgvEmprestimo.Location = new System.Drawing.Point(0, 0);
             this.dgvEmprestimo.Name = "dgvEmprestimo";
-            this.dgvEmprestimo.Size = new System.Drawing.Size(681, 340);
+            this.dgvEmprestimo.Size = new System.Drawing.Size(580, 270);
             this.dgvEmprestimo.TabIndex = 1;
             // 
             // idEmprestimo
@@ -499,9 +499,9 @@
         private System.Windows.Forms.Button btnAlterarDev;
         private System.Windows.Forms.Button btnNovoDev;
         private System.Windows.Forms.Button btnProcurarDev;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtIdDevLeitor;
+        private System.Windows.Forms.TextBox txtIdDevLivro;
+        private System.Windows.Forms.TextBox txtIdDevEmprestimo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

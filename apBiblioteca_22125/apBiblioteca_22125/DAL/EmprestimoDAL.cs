@@ -61,7 +61,27 @@ namespace DAL
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "dataEmprestimoPrevisto, dataDevolucao FROM bibEmprestimo";
+                             " dataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable SelectEmprestimosAtrasados()  //tabela de dados
+        {
+            try
+            {
+                String sql = "SELECT idEmprestimo, idLeitor, idLivro, " +
+                             "DataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo" +
+                             " WHERE dataDevolucao > DataEmprestimoPrevisto";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -80,8 +100,8 @@ namespace DAL
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "DataEmprestimoPrevisto, dataDevolucao FROM bibEmprestimo" +
-                             " WHERE idEmpretimo = @id";
+                             "DataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo" +
+                             " WHERE idEmprestimo = @id";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@id", idDesejado);
@@ -94,9 +114,10 @@ namespace DAL
                     emprestimo = new Emprestimo(Convert.ToInt32(dr["idEmprestimo"]),
                                       Convert.ToInt32(dr["idLeitor"]),
                                       Convert.ToInt32(dr["idLivro"]),
+                                      Convert.ToDateTime(dr["dataEmprestimo"]),
                                       Convert.ToDateTime(dr["DataEmprestimoPrevisto"]),
-                                      Convert.ToDateTime(dr["dataDevolucao"]),
-                                      Convert.ToDateTime(dr["dataEmprestimo"]));
+                                      Convert.ToDateTime(dr["dataDevolucao"])
+                                      );
                 }
                 return emprestimo;
             }
@@ -126,9 +147,11 @@ namespace DAL
                     emprestimo = new Emprestimo(Convert.ToInt32(dr["idEmprestimo"]),
                                       Convert.ToInt32(dr["idLeitor"]),
                                       Convert.ToInt32(dr["idLivro"]),
+                                      Convert.ToDateTime(dr["dataEmprestimo"]),
                                       Convert.ToDateTime(dr["DataEmprestimoPrevisto"]),
-                                      Convert.ToDateTime(dr["dataDevolucao"]),
-                                      Convert.ToDateTime(dr["dataEmprestimo"]));
+                                      Convert.ToDateTime(dr["dataDevolucao"])
+                                      
+                                      );
                 }
                 return emprestimo;
             }
@@ -144,7 +167,7 @@ namespace DAL
             {
                 Emprestimo emprestimo = null;
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "DataEmprestimoPrevisto, dataDevolucao FROM bibEmprestimo" +
+                             "DataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo" +
                              " WHERE idLeitor = @id";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -176,15 +199,15 @@ namespace DAL
             try
             {
                 String sql = "INSERT INTO bibEmprestimo " +
-                " (idLivro, idLeitor, dataEmprestimo,DataEmprestimoPrevisto,dataDevolucao) " +
-               " VALUES (@idLivro,@idLeitor, @dataEmprestimo, @dataDevolucaoPrevista, @dataDevolucao) ";
+                " (idLivro, idLeitor, dataEmprestimo,DataEmprestimoPrevisto, dataDevolucao ) " +
+               " VALUES (@idLivro,@idLeitor, @dataEmprestimo,  @dataDevolucaoPrevista, @dataDevolucao )";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@idLivro", qualEmprestimo.IdLivro);
                 cmd.Parameters.AddWithValue("@idLeitor", qualEmprestimo.IdLeitor);
                 cmd.Parameters.AddWithValue("@dataEmprestimo", qualEmprestimo.DataEmprestimo);
-                cmd.Parameters.AddWithValue("@dataDevolucaoPrevista", qualEmprestimo.DataDevolucaoReal);
-                cmd.Parameters.AddWithValue("@dataDevolucao", qualEmprestimo.DataDevolucaoPrevista);
+                cmd.Parameters.AddWithValue("@dataDevolucaoPrevista", qualEmprestimo.DataDevolucaoPrevista);
+                cmd.Parameters.AddWithValue("@dataDevolucao", qualEmprestimo.DataDevolucaoReal);
 
                 _conexao.Open();
                 cmd.ExecuteNonQuery();
