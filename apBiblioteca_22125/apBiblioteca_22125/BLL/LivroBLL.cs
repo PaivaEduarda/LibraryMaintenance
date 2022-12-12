@@ -18,7 +18,7 @@ namespace BLL
 
         }
 
-        public DataTable SelecionarLivros()
+        public DataTable SelecionarLivros() //seleciona todos os livros 
         {
             DataTable tb = new DataTable();
             try
@@ -33,7 +33,7 @@ namespace BLL
             return tb;
         }
 
-        public void IncluirLivro(Livro livro)
+        public void IncluirLivro(Livro livro) //inclui os livros 
         {
             try
             {
@@ -46,7 +46,7 @@ namespace BLL
             }
         }
 
-        public void AlterarLivro(Livro livro)
+        public void AlterarLivro(Livro livro)//altera  os livros 
         {
             try
             {
@@ -59,7 +59,7 @@ namespace BLL
             }
         }
 
-        public void ExcluirLivro(Livro livro)
+        public void ExcluirLivro(Livro livro) //exclui os livros 
         {
             try
             {
@@ -71,8 +71,8 @@ namespace BLL
                 throw ex;
             }
         }
-            public List<Livro> ListarLivros()
-            {
+            public List<Livro> ListarLivros() //lista todos os livros 
+        {
                 try
                 {
                     dal = new DAL.LivroDAL(banco, usuario, senha);
@@ -86,8 +86,8 @@ namespace BLL
 
             }
             
-            public Livro ListarLivroPorId(int id)
-            {
+            public Livro ListarLivroPorId(int id) //lista os livros por id
+        {
                 try
                 {
                     dal = new DAL.LivroDAL(banco, usuario, senha);
@@ -99,7 +99,7 @@ namespace BLL
                 }
             }
 
-            public Livro ListarLivroPorCodigo(string codigo)
+            public Livro ListarLivroPorCodigo(string codigo) //Lista os livros por código
             {
                 try
                 {

@@ -29,7 +29,6 @@ C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBibliot
 C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.AssemblyReference.cache
 C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.csproj.SuggestedBindingRedirects.cache
 C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.Properties.Resources.resources
-C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmDevolucao.resources
 C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmEmprestimo.resources
 C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmLeitor.resources
 C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmLivro.resources
@@ -53,3 +52,4 @@ C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBibliote
 C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.exe
 C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\bin\Debug\apBiblioteca_22125.pdb
 C:\Users\WIN10\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmAtrasados.resources
+C:\Users\u22125\Documents\GitHub\LibraryMaintenance\apBiblioteca_22125\apBiblioteca_22125\obj\Debug\apBiblioteca_22125.UI.FrmAtrasados.resources

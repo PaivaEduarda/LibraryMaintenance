@@ -32,7 +32,7 @@ namespace BLL
                 throw ex;
             }
             return tb;
-        }
+        } //seleciona os leitores
 
         public void IncluirLeitor(Leitor leitor)
         {
@@ -45,7 +45,7 @@ namespace BLL
             {
                 throw ex;
             }
-        }
+        } //inclui os leitores
 
         public void AlterarLeitor(Leitor leitor)
         {
@@ -58,7 +58,7 @@ namespace BLL
             {
                 throw ex;
             }
-        }
+        } //altera os leitores
 
         public void ExcluirLeitor(Leitor leitor)
         {
@@ -71,7 +71,7 @@ namespace BLL
             {
                 throw ex;
             }
-        }
+        } //exclui os leitores
         public List<Leitor> ListarLeitor()
         {
             try
@@ -85,7 +85,7 @@ namespace BLL
             }
 
 
-        }
+        } //lista os leitores
 
         public Leitor ListarLeitorPorId(int id)
         {
@@ -98,7 +98,7 @@ namespace BLL
             {
                 throw ex;
             }
-        }
+        } //lista os leitores pelo id
         public Leitor ListarLeitorPorTelefone( string telefone)
         {
             try
@@ -110,7 +110,7 @@ namespace BLL
             {
                 throw ex;
             }
-        }
+        } //lista os leitores pelo telefone
 
     }
 }

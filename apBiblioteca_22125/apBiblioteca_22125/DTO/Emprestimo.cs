@@ -25,7 +25,7 @@ namespace DTO
                     throw new Exception("Id negativo é inválido!");
                 idEmprestimo = value; // armazena o valor passado no atributo de destino
             }
-        }
+        } 
 
         public int IdLeitor
         {

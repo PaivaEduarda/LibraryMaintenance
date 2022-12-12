@@ -72,7 +72,7 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona todos os dados da tabela
         public Livro SelectById(int idDesejado)
         {
             try
@@ -100,7 +100,7 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } // seleciona os dados pelo id
         public Livro SelectLivroByCodigo(string codigoDesejado)
         {
             try
@@ -131,7 +131,7 @@ namespace DAL
             {
                 throw ex;
             }
-        }
+        } // seleciona os dados pelo código
         public void InsertLivro(Livro qualLivro)
         {
             try
@@ -155,7 +155,7 @@ namespace DAL
             {
                 _conexao.Close();
             }
-        }
+        } //insere um novo livro
         public void DeleteLivro(Livro qualLivro)
         {
             try
@@ -176,7 +176,7 @@ namespace DAL
                 _conexao.Close();
             }
 
-        }
+        } //deleta livro
         public void UpdateLivro(Livro qualLivro)
         {     
             try
@@ -204,6 +204,6 @@ namespace DAL
                 _conexao.Close();
             }
         }
-    }
+    } // atualiza livro
 }
 

@@ -18,7 +18,7 @@ namespace apBiblioteca_22125.UI
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (txtNomeLeitor.Text == "" || txtTelefone.Text == "" || txtEndereco.Text == "" || txtEmail.Text == "")
-                MessageBox.Show("Erro! Preencha os campos!");
+                MessageBox.Show("Erro! Preencha os campos!"); //os campos tem que estar preenchidos
             else
             {
                 Leitor leitor = new Leitor(int.Parse(txtIdLeitor.Text),
@@ -37,7 +37,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //altera os dados do leitor
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -47,7 +47,7 @@ namespace apBiblioteca_22125.UI
             {
                 BLL.LeitorBLL bll = new LeitorBLL(banco, usuario, senha);
                 Leitor x = bll.ListarLeitorPorTelefone(txtTelefone.Text);
-                txtIdLeitor.Text = x.IdLeitor + "";
+                txtIdLeitor.Text = x.IdLeitor + ""; 
                 Leitor leitor = new Leitor(Convert.ToInt32(txtIdLeitor.Text), "", "", "", "");
                 try
                 {
@@ -64,7 +64,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //exclui os dados do leitor a partir do telefone
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
@@ -83,13 +83,13 @@ namespace apBiblioteca_22125.UI
                     txtEmail.Text = x.EmailLeitor;
                     txtTelefone.Text = x.TelefoneLeitor;
                     txtEndereco.Text = x.EnderecoLeitor;
-                }
+                } //insere, nas text box, os dados encontrados a partir do telefone do leitor
                 catch (Exception ex)
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } // procura o leitor a partir do telefone
 
         private void btnExibir_Click(object sender, EventArgs e)
         {
@@ -116,12 +116,12 @@ namespace apBiblioteca_22125.UI
             {
                 MessageBox.Show(" Erro : " + ex.Message.ToString());
             }
-        }
+        } //exibe todos os dados dos leitores em uma dataGridView
 
         private void btnNovo_Click_1(object sender, EventArgs e)
         {
             if (txtNomeLeitor.Text == "" || txtTelefone.Text == "" || txtEndereco.Text == "" || txtEmail.Text == "")
-                MessageBox.Show("Erro! Preencha os campos!");
+                MessageBox.Show("Erro! Preencha os campos!"); // é necessário preencher todos os campos para inserir um novo leitor
             else
             {
                 Leitor leitor = new Leitor(0, "", "", "", "");
@@ -135,13 +135,13 @@ namespace apBiblioteca_22125.UI
                     bll.IncluirLeitor(leitor);
                     MessageBox.Show("Leitor inserido com suceso!");
                     Leitor x = bll.ListarLeitorPorTelefone(txtTelefone.Text);
-                    txtIdLeitor.Text = x.IdLeitor + "";
+                    txtIdLeitor.Text = x.IdLeitor + ""; //mostra o id do leitor
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //insere um novo leitor
     }
 }

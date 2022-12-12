@@ -19,7 +19,7 @@ namespace BLL
 
         }
 
-        public DataTable SelecionarEmprestimos()
+        public DataTable SelecionarEmprestimos() //seleciona todos os empréstimos
         {
             DataTable tb = new DataTable();
             try
@@ -33,7 +33,7 @@ namespace BLL
             }
             return tb;
         }
-        public DataTable SelecionarEmprestimosAtrasados()
+        public DataTable SelecionarEmprestimosAtrasados() //seleciona todos os empréstimos
         {
             DataTable tb = new DataTable();
             try
@@ -48,7 +48,7 @@ namespace BLL
             return tb;
         }
 
-        public void IncluirEmprestimo(Emprestimo emprestimo)
+        public void IncluirEmprestimo(Emprestimo emprestimo) //inclui empréstimos
         {
             try
             {
@@ -61,7 +61,7 @@ namespace BLL
             }
         }
 
-        public void AlterarEmprestimo(Emprestimo emprestimo)
+        public void AlterarEmprestimo(Emprestimo emprestimo) // altera os empréstimos
         {
             try
             {
@@ -74,7 +74,7 @@ namespace BLL
             }
         }
 
-        public void ExcluirEmprestimo(Emprestimo emprestimo)
+        public void ExcluirEmprestimo(Emprestimo emprestimo) //exclui os empréstimos
         {
             try
             {
@@ -86,7 +86,7 @@ namespace BLL
                 throw ex;
             }
         }
-        public List<Emprestimo> ListarEmprestimo()
+        public List<Emprestimo> ListarEmprestimo() //lista os empréstimos
         {
             try
             {
@@ -101,7 +101,7 @@ namespace BLL
 
         }
 
-        public Emprestimo ListarEmprestimoPorIdLeitor(int idLeitor)
+        public Emprestimo ListarEmprestimoPorIdLeitor(int idLeitor) // lista os empréstimos pelo id do leitor
         {
             try
             {
@@ -113,7 +113,7 @@ namespace BLL
                 throw ex;
             }
         }
-        public Emprestimo ListarEmprestimoPorIdLivro(int idLivro)
+        public Emprestimo ListarEmprestimoPorIdLivro(int idLivro) // lista os empréstimos pelo id do livro
         {
             try
             {
@@ -125,7 +125,7 @@ namespace BLL
                 throw ex;
             }
         }
-        public Emprestimo ListarEmprestimoPorId(int id)
+        public Emprestimo ListarEmprestimoPorId(int id) // lista os empréstimos pelo id do empréstimo
         {
             try
             {

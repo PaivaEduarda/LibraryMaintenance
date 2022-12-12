@@ -54,7 +54,7 @@ namespace DAL
             {
                 throw new Exception("Erro ao acessar estoque " + ex.Message);
             }
-        }
+        } //seleciona todos os dados tabela
         public DataTable SelectLeitores()  //tabela de dados
         {
             try
@@ -73,7 +73,7 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona todos os dados da tabela
 
         public Leitor SelectById(int idDesejado)
         {
@@ -104,7 +104,7 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona todos os dados a partir do id do leitor
         public Leitor SelectByTelefone(String telefone)
         {
             try
@@ -134,7 +134,7 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona todos os dados a partir do telefone do leitor
 
 
         public void InsertLeitor(Leitor qualLeitor)
@@ -162,7 +162,7 @@ namespace DAL
             {
                 _conexao.Close();
             }
-        }
+        } //inserir o leitor 
         public void DeleteLeitor(Leitor qualLeitor)
         {
             try
@@ -183,7 +183,7 @@ namespace DAL
                 _conexao.Close();
             }
 
-        }
+        } //deletar os leitores
         public void UpdateLeitor(Leitor qualLeitor)
         {
             try
@@ -213,7 +213,7 @@ namespace DAL
             {
                 _conexao.Close();
             }
-        }
+        } //atualiza os dados do leitor
     }
 }
 

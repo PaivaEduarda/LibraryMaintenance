@@ -55,13 +55,13 @@ namespace DAL
             {
                 throw new Exception("Erro ao acessar estoque " + ex.Message);
             }
-        }
+        } //seleciona toda a tabela
         public DataTable SelectEmprestimos()  //tabela de dados
         {
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             " dataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo";
+                             " dataDevolucaoPrevista, dataDevolucaoReal  FROM bibEmprestimo";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -74,14 +74,14 @@ namespace DAL
             {
                 throw ex;
             }
-        }
+        } //seleciona toda a tabela
         public DataTable SelectEmprestimosAtrasados()  //tabela de dados
         {
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, " +
-                             "DataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo" +
-                             " WHERE dataDevolucao > DataEmprestimoPrevisto";
+                             "DataDevolucaoPrevista, dataDevolucaoReal  FROM bibEmprestimo" +
+                             " WHERE dataDevolucaoReal > DataDevolucaoPrevista";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -94,13 +94,13 @@ namespace DAL
             {
                 throw ex;
             }
-        }
+        } //seleciona todos os empréstimos atrasados
         public Emprestimo SelectById(int idDesejado)
         {
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "DataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo" +
+                             "DataDevolucaoPrevista, dataDevolucaoReal  FROM bibEmprestimo" +
                              " WHERE idEmprestimo = @id";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -115,8 +115,8 @@ namespace DAL
                                       Convert.ToInt32(dr["idLeitor"]),
                                       Convert.ToInt32(dr["idLivro"]),
                                       Convert.ToDateTime(dr["dataEmprestimo"]),
-                                      Convert.ToDateTime(dr["DataEmprestimoPrevisto"]),
-                                      Convert.ToDateTime(dr["dataDevolucao"])
+                                      Convert.ToDateTime(dr["DataDevolucaoPrevista"]),
+                                      Convert.ToDateTime(dr["dataDevolucaoReal"])
                                       );
                 }
                 return emprestimo;
@@ -126,13 +126,13 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona o empréstimo pelo id
         public Emprestimo SelectByIdLivro(int idDesejado)
         {
             try
             {
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "DataEmprestimoPrevisto, dataDevolucao" +
+                             "DataDevolucaoPrevista, dataDevolucaoReal" +
                              " FROM bibEmprestimo" +
                              " WHERE idLivro = @id";
                 _conexao = new SqlConnection(_conexaoSQLServer);
@@ -148,8 +148,8 @@ namespace DAL
                                       Convert.ToInt32(dr["idLeitor"]),
                                       Convert.ToInt32(dr["idLivro"]),
                                       Convert.ToDateTime(dr["dataEmprestimo"]),
-                                      Convert.ToDateTime(dr["DataEmprestimoPrevisto"]),
-                                      Convert.ToDateTime(dr["dataDevolucao"])
+                                      Convert.ToDateTime(dr["DataDevolucaoPrevista"]),
+                                      Convert.ToDateTime(dr["dataDevolucaoReal"])
                                       
                                       );
                 }
@@ -160,14 +160,14 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona os empréstimos pelo id livro
         public Emprestimo SelectByIdLeitor(int idDesejado)
         {
             try
             {
                 Emprestimo emprestimo = null;
                 String sql = "SELECT idEmprestimo, idLeitor, idLivro, dataEmprestimo, " +
-                             "DataEmprestimoPrevisto, dataDevolucao  FROM bibEmprestimo" +
+                             "DataDevolucaoPrevista, dataDevolucaoReal  FROM bibEmprestimo" +
                              " WHERE idLeitor = @id";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -181,8 +181,8 @@ namespace DAL
                     emprestimo = new Emprestimo(Convert.ToInt32(dr["idEmprestimo"]),
                                       Convert.ToInt32(dr["idLeitor"]),
                                       Convert.ToInt32(dr["idLivro"]),
-                                      Convert.ToDateTime(dr["DataEmprestimoPrevisto"]),
-                                      Convert.ToDateTime(dr["dataDevolucao"]),
+                                      Convert.ToDateTime(dr["DataDevolucaoPrevista"]),
+                                      Convert.ToDateTime(dr["dataDevolucaoReal"]),
                                       Convert.ToDateTime(dr["dataEmprestimo"]));
                 }
                 return emprestimo;
@@ -192,14 +192,14 @@ namespace DAL
                 throw ex;
             }
 
-        }
+        } //seleciona os empréstimos pelo idLeitor
 
         public void InsertEmprestimo(Emprestimo qualEmprestimo)
         {
             try
             {
                 String sql = "INSERT INTO bibEmprestimo " +
-                " (idLivro, idLeitor, dataEmprestimo,DataEmprestimoPrevisto, dataDevolucao ) " +
+                " (idLivro, idLeitor, dataEmprestimo,DataDevolucaoPrevista, dataDevolucaoReal ) " +
                " VALUES (@idLivro,@idLeitor, @dataEmprestimo,  @dataDevolucaoPrevista, @dataDevolucao )";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -220,7 +220,7 @@ namespace DAL
             {
                 _conexao.Close();
             }
-        }
+        } //inseri um novo empréstimo
         public void DeleteEmprestimo(Emprestimo qualEmprestimo)
         {
             try
@@ -240,15 +240,15 @@ namespace DAL
             {
                 _conexao.Close();
             }
-        }
+        } //deleta um empréstimo
         public void UpdateEmprestimo(Emprestimo qualEmprestimo)
         {
             try
             {
                 String sql = "UPDATE bibEmprestimo " +
                 " SET DataEmprestimo = @dataEmprestimo, " +
-               " DataEmprestimoPrevisto = @dataDevolucaoPrevista," +
-               " dataDevolucao = @dataDevolucao " +
+               " DataDevolucaoPrevista = @dataDevolucaoPrevista," +
+               " dataDevolucaoReal = @dataDevolucao " +
                " WHERE idEmprestimo = @idEmprestimo ";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -270,6 +270,6 @@ namespace DAL
             {
                 _conexao.Close();
             }
-        }
+        } //atualiza um empréstimo
     }
 }

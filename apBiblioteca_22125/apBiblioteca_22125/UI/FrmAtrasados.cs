@@ -32,6 +32,6 @@ namespace apBiblioteca_22125.UI
                 dgvAtrasados[3, i].Value = tabela.Rows[i][3];
                 dgvAtrasados[4, i].Value = tabela.Rows[i][4];
             }
-        }
+        } //exibe no dgv as devoluções atrasadas
     }
 }

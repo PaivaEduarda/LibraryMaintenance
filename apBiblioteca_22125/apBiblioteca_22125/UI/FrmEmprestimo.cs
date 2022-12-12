@@ -19,13 +19,13 @@ namespace apBiblioteca_22125.UI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (txtIdLeitor.Text == "" || txtIdLivro.Text == "")
-                MessageBox.Show("Erro! Preencha os campos corretamente!");
+            if ( txtIdLivro.Text == "")
+                MessageBox.Show("Erro! Preencha os campos id livro para alterar o empréstimo"); // é necessário preencher os campos Id livro para alterar o empréstimo
             else
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                 Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
-                txtIdEmprestimo.Text = x.IdEmprestimo + "";
+                txtIdEmprestimo.Text = x.IdEmprestimo + ""; //adiciona o id do empréstimo na tela
 
                 Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
                                        int.Parse(txtIdLivro.Text),
@@ -42,7 +42,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //altera os empréstimos
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -69,7 +69,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //exclui empréstimos
         public void ExcluirEmprestimo(int idEmprestimo)
         {
 
@@ -82,7 +82,7 @@ namespace apBiblioteca_22125.UI
                 Emprestimo x = bll.ListarEmprestimoPorId(idEmprestimo);
                 txtIdDevEmprestimo.Text = x.IdEmprestimo + "";
 
-                Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0, new DateTime(), new DateTime(), new DateTime());
+                Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0, new DateTime(), new DateTime(), new DateTime()); 
                 try
                 {
                     bll.ExcluirEmprestimo(emprestimo);
@@ -93,7 +93,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //exclui empréstimo
         private void btnExibir_Click(object sender, EventArgs e)
         {
 
@@ -115,25 +115,10 @@ namespace apBiblioteca_22125.UI
 
                 }
                 tcEmprestimoseDevolucoes.SelectTab(listatb);
-            }
+            } //exibe todos os empréstimos em data grid view
             catch (Exception ex)
             {
                 MessageBox.Show(" Erro : " + ex.Message.ToString());
-            }
-        }
-        public Boolean livrosAtrasados()
-        {
-            Emprestimo livro = null;
-            EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-            Emprestimo livrosEmprestados = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
-            if (livrosEmprestados.DataDevolucaoReal == null || livrosEmprestados.DataDevolucaoPrevista == null)
-                return false;
-            else
-            {
-                if (livrosEmprestados.DataDevolucaoReal > livrosEmprestados.DataDevolucaoPrevista)
-                    return true;
-                else
-                    return false;
             }
         }
         private void btnNovo_Click(object sender, EventArgs e)
@@ -158,7 +143,7 @@ namespace apBiblioteca_22125.UI
                 {
                     bll = new EmprestimoBLL(banco, usuario, senha);
                     Emprestimo emprestimos = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
-                    if (emprestimos == null)
+                    if (emprestimos == null) //se não retornar algum empréstimo com esse livro
                     {
                         bll.IncluirEmprestimo(emprestimo);
                         MessageBox.Show("Emprestimo incluido com sucesso!");
@@ -166,23 +151,23 @@ namespace apBiblioteca_22125.UI
                         txtIdEmprestimo.Text = x.IdEmprestimo + "";
                     }
                     else
-                        MessageBox.Show("Livro Emprestado!");
+                        MessageBox.Show("Livro Emprestado!"); //se não o livro está emprestado
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
-                // }
+                
             }
 
-        }
+        } //adiciona um novo empréstimo
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
             EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
             Emprestimo x = bll.ListarEmprestimoPorIdLivro(int.Parse(txtIdLivro.Text));
             if (x == null)
-                MessageBox.Show("Empréstimo inexistente!");
+                MessageBox.Show("Empréstimo inexistente!"); //para devolver um livro, ele tem que estar emprestado
             else
             {
                 txtIdEmprestimo.Text = x.IdEmprestimo + "";
@@ -195,15 +180,17 @@ namespace apBiblioteca_22125.UI
                 {
                     try
                     {
-                        if (bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text)) != null)
+                        if (bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text)) != null)//ele procura por leitor, se existir um empréstimo com esse leitor
                         {
                             emprestimo = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLeitor.Text));
                         }
                         else
-                            if (bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text)) != null)
+                            if (bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text)) != null) //se não tiver com o id do leitor, se não, tentar com o id livro
                         {
                             emprestimo = bll.ListarEmprestimoPorIdLeitor(int.Parse(txtIdLivro.Text));
                         }
+                        else
+                            MessageBox.Show("Empréstimo inexistente");
                         txtIdLivro.Text = emprestimo.IdLivro + "";
                         txtIdLeitor.Text = emprestimo.IdLeitor + "";
                         dataEmprestimo.Value = emprestimo.DataEmprestimo;
@@ -233,7 +220,7 @@ namespace apBiblioteca_22125.UI
                     dataEmprestimo.Value = x.DataEmprestimo;
 
                     if (dataDeDevolucao.Value.Date > dataDeDevolucaoPrevista.Value.Date)
-                        MessageBox.Show("Livro atrasado!");
+                        MessageBox.Show("Livro atrasado!"); //se a data de devolução for maior que a data prevista, então o livro está atrasado
 
                    
                     Emprestimo emprestimo = bll.ListarEmprestimoPorId(int.Parse(txtIdDevEmprestimo.Text));
@@ -247,7 +234,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //procura uma devolução 
 
         private void btnExcluirDev_Click(object sender, EventArgs e)
         {
@@ -270,7 +257,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //exclui devolucao
 
         private void btnExibirDev_Click(object sender, EventArgs e)
         {
@@ -297,7 +284,7 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
          
-        }
+        } //exibe todas as devoluções no dataGridView
 
         private void btnNovoDev_Click(object sender, EventArgs e)
         {
@@ -323,12 +310,12 @@ namespace apBiblioteca_22125.UI
                     else
                     {
                         if (dataDeDevolucao.Value > dataDeDevolucaoPrevista.Value)
-                            MessageBox.Show("Livro atrasado!!!!!");
+                            MessageBox.Show("Livro atrasado!!!!!"); //data de devolução maior que a prevista, a devolução está atrasada
                         try
                         {
                             bll.IncluirEmprestimo(emprestimo);
                             MessageBox.Show("Devolução concluído com sucesso!");
-                            ExcluirEmprestimo(int.Parse(txtIdDevEmprestimo.Text));
+                            ExcluirEmprestimo(int.Parse(txtIdDevEmprestimo.Text)); //exclui um empréstimo
                         }
                         catch (Exception ex)
                         {
@@ -338,7 +325,7 @@ namespace apBiblioteca_22125.UI
                 }
             }
 
-        }
+        } //adiciona uma nova devolução
 
         private void btnAlterarDev_Click(object sender, EventArgs e)
         {
@@ -366,6 +353,6 @@ namespace apBiblioteca_22125.UI
                     MessageBox.Show(" Erro : " + ex.Message.ToString());
                 }
             }
-        }
+        } //altera as devoluções
     }
 }
